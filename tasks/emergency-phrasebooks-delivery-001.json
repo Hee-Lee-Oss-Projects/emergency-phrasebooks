@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-delivery-001",
+  "title": "Package + deliver pack set; confirm partner adoption for field use",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "delivery",
+    "partnerships",
+    "emergency-response"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Delivery is the first true Definition of Shipped event: the reviewed, licensed, field-tested pack set is packaged and the partner confirms adoption for field use in writing. This task records that delivery and confirmation. It depends on the translated set, field test, and license-check tooling.",
+  "objective": "Package and deliver the pack set and record the partner's written confirmation of adoption for field use.",
+  "acceptanceCriteria": [
+    "Delivered set includes packs, provenance, attribution + mandatory disclaimer, all required sign-offs (incl. back-translation/clinician for Tier C), and verified locale data",
+    "License check green",
+    "Partner confirms adoption for field use in writing (recorded in PR/receipt)",
+    "Recorded as the first Definition of Shipped event; related tasks updated to verifiedNeed:true and requestor set to the named partner"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "review/delivery-record.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

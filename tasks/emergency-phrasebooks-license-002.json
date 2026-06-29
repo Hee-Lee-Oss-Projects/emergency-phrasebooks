@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-license-002",
+  "title": "License-check tooling (lint allow-list + pack metadata + locale verification)",
+  "project": "emergency-phrasebooks",
+  "type": "code",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "tooling",
+    "licensing",
+    "ci"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "From M1 the 100% license/disclaimer gate becomes automated, so this tooling validates each pack's metadata against its allow-list and fails on missing attribution/disclaimer, incompatible output license, or unverified/expired locale data. It runs in CI as full enforcement. It depends on the content schemas and license-000.",
+  "objective": "Build license-check tooling that lints allow-list and pack metadata and enforces locale verification in CI.",
+  "acceptanceCriteria": [
+    "Validates each pack's metadata against its allow-list/original-authorship records",
+    "Fails if attribution or the mandatory disclaimer is missing, if output license is incompatible with a source, or if the locale's emergency number is unverified/expired",
+    "Runs in CI as the automated 100% license/disclaimer gate from M1",
+    "Agent-neutral; documented usage and exit codes"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "scripts/license-check.* (CI-enforced)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-process-001",
+  "title": "End-to-end pipeline runbook",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "process",
+    "documentation",
+    "quality-assurance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Once the pipeline is repeatable it needs a documented runbook so any contributor can take a scenario pack from English-pivot to a delivered, reviewed, licensed pack. The runbook captures every stage and gate. It depends on translate-001 and the license-check tooling.",
+  "objective": "Write the end-to-end pipeline runbook covering every stage from phrase-bank to delivered pack.",
+  "acceptanceCriteria": [
+    "Documents the full pipeline: phrase selection, license clearance, drafting, review gates (tier-aware), localization, license/attribution check, assembly, and delivery",
+    "References the schemas, templates, glossaries, locales, and tooling used at each stage",
+    "States the hard gates (license-000 before drafting, disclaimer presence, Tier-C back-translation, sign-offs) and where each is recorded",
+    "Usable by a new contributor to run a pack end-to-end"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "docs/pipeline-runbook.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

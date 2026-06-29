@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-print-001",
+  "title": "Print-first pocket-card template (B/W, fold-to-pocket PDF + Markdown)",
+  "project": "emergency-phrasebooks",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "design",
+    "print",
+    "accessibility"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Packs are used in the field, often offline and on paper, so the primary output format is a black-and-white, fold-to-pocket print card rendered from Markdown to PDF. The template defines that print-first layout. It depends on the criticality rubric so tiering and the mandatory disclaimer are surfaced consistently.",
+  "objective": "Design the print-first pocket-card template (B/W, fold-to-pocket) as PDF spec plus Markdown source.",
+  "acceptanceCriteria": [
+    "Template renders a black-and-white, fold-to-pocket card from Markdown to PDF without color dependence",
+    "Surfaces phrase tiering, pictograms, and the mandatory disclaimer legibly at pocket size",
+    "Includes a locale slot for the verified emergency number and protocol note",
+    "Documents the render path so packs/<scenario>/<lang>/<locale>/pack.pdf and pack.md can be produced reproducibly"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "templates/print-pocketcard.md (+ PDF render spec)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "emergency-phrasebooks-translate-003",
+  "title": "Translate partner-priority pack set into agreed language(s)/locale",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "translation",
+    "emergency-response",
+    "public-health"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "With a partner secured, the partner-priority scenario pack set is translated into the agreed language(s) for the agreed locale through the full reviewed, licensed pipeline. This is the body of work that becomes the field-delivered set. It depends on the partner agreement, extended glossary, and pronunciation support.",
+  "objective": "Translate the partner-priority pack set into the agreed language(s)/locale as complete, reviewed, licensed packs.",
+  "acceptanceCriteria": [
+    "License clearance confirmed for all items before drafting; agreed locale emergency number verified and injected",
+    "Partner-priority scenario pack set translated in full into the agreed language(s), UTF-8; preserved tokens exact; register/gender per glossary; pronunciation/transliteration included",
+    "Each pack ships provenance.yaml and attribution.txt (attribution + mandatory disclaimer verbatim in target and pivot language)",
+    "Qualified-speaker sign-offs recorded in PR, independent of drafting; Tier B/C second reviewer; every Tier-C phrase back-translated; medical-critical Tier-C clinician sign-off",
+    "License/attribution check green; all agentFlags resolved before sign-off"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "packs/<priority-set>/<lang>/<locale>/ (full pack set per language)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "Source-compatible: CC-BY-SA-4.0 for project-original phrases; source-mandated license + mandatory disclaimer where derived (e.g. WHO CC BY-NC-SA 3.0 IGO) — never relicensed as a more permissive license"
+}

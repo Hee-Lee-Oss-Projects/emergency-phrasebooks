@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-guidelines-001",
+  "title": "Phrase-authoring + cross-cultural-clarity guidelines",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "translation",
+    "emergency-response",
+    "cross-cultural-communication"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "emergency-phrasebooks produces pre-translated, expert-reviewed emergency phrase packs for first-contact use by responders and newcomers. Phrases must be authored to survive translation into many languages without losing meaning or introducing dangerous ambiguity. These guidelines are the authoring contract every English-pivot phrase must satisfy before it enters the phrase bank.",
+  "objective": "Write the phrase-authoring and cross-cultural-clarity guidelines that all English-pivot phrases must follow.",
+  "acceptanceCriteria": [
+    "Guidelines forbid idioms, culture-bound metaphors, and yes/no-gesture-dependent constructions",
+    "Require that inverting negations are flagged and that numbers, units, and emergency-relevant entities are declared as preserved tokens",
+    "Give positive/negative examples per rule and a pre-commit authoring checklist mappable to CI structural checks",
+    "Exclude legal/rights, enforcement-adversarial, immigration-status, coercive, and clinical-advice constructions by policy"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "templates/phrase-authoring-guidelines.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

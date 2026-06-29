@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-fieldtest-001",
+  "title": "Field-usability test with a responder/newcomer",
+  "project": "emergency-phrasebooks",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "field-testing",
+    "usability",
+    "emergency-response"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Before declaring a pack delivered it must be trialed in a real or simulated first-contact so usability problems are caught and fixed. This task records that field-usability test. It depends on the partner-priority translated set.",
+  "objective": "Run and document a field-usability test of the pack with a responder and/or newcomer.",
+  "acceptanceCriteria": [
+    "At least one responder and/or newcomer trials the pack in a real or simulated first-contact",
+    "Usability findings recorded (legibility, find-time, pictogram comprehension, fold/format)",
+    "Any blocking issues fixed before delivery",
+    "Findings feed the delivery record and PLAN success metrics"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "review/fieldtest-report.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

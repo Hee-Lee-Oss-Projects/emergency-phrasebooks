@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-glossary-002",
+  "title": "Extend glossary + a pack to a second language pair",
+  "project": "emergency-phrasebooks",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "translation",
+    "terminology",
+    "public-health"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Repeatability is demonstrated by covering a second language pair, so the glossary (and a pack) extend to a second target language. A qualified reviewer of the new language is required. It builds on the first glossary.",
+  "objective": "Extend the glossary to a second language pair with register/gender handling and qualified-reviewer sign-off.",
+  "acceptanceCriteria": [
+    "glossaries/<src>-<tgt2>.yaml has >= 25 terms with term, translation or preserve, partOfSpeech, register, genderForms (where applicable), notes",
+    "Terminology reviewed and signed off by a qualified speaker of the second target language",
+    "Derived terms recorded against the allow-list; no uncleared sources used",
+    "Validates against glossarySchema and passes CI structural checks"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "glossaries/<src>-<tgt2>.yaml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

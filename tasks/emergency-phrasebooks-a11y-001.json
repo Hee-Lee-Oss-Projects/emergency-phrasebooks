@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-a11y-001",
+  "title": "Accessibility variant (large-print / dyslexia-friendly / high-contrast)",
+  "project": "emergency-phrasebooks",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "accessibility",
+    "design",
+    "print"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Packs must be usable by people with low vision, dyslexia, or in low-light field conditions, so an accessibility variant of the print template is defined (large-print, dyslexia-friendly, high-contrast). A qualified reviewer checks the variant. It builds on the print template.",
+  "objective": "Specify an accessibility variant of the pocket-card template (large-print / dyslexia-friendly / high-contrast).",
+  "acceptanceCriteria": [
+    "Defines large-print, dyslexia-friendly, and high-contrast variants that preserve tiering, pictograms, and the mandatory disclaimer",
+    "Maintains print-first, B/W-safe and fold-to-pocket constraints (or documents the trade-off)",
+    "Reviewed for legibility/usability by a qualified reviewer",
+    "Render path documented so accessible packs are reproducible"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "templates/print-pocketcard-a11y.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

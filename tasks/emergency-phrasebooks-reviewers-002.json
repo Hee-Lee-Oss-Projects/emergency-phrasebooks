@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-reviewers-002",
+  "title": "Recruit/engage >=2 qualified reviewers (>=1 medical-capable) or a translation NGO",
+  "project": "emergency-phrasebooks",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "partnerships",
+    "review-process",
+    "outreach"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The pipeline cannot ship reviewed packs without a reviewer bench, so this task recruits at least two qualified reviewers (at least one medical-capable) or engages a translation NGO. Outreach targets and engagement records are documented. It depends on the qualification criteria.",
+  "objective": "Recruit/engage at least two qualified reviewers (>=1 medical-capable) or a translation NGO, with the engagement recorded.",
+  "acceptanceCriteria": [
+    "At least two qualified reviewers engaged (at least one medical-capable) or a translation NGO partner engaged, with COI declarations recorded",
+    "Each reviewer mapped to language pair(s) and qualification tier per the qualification criteria",
+    "Engagement and availability recorded; requestor remains TO BE SECURED until a partner confirms",
+    "Gaps in coverage (languages/tiers without a qualified reviewer) explicitly listed"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "review/reviewer-recruitment.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

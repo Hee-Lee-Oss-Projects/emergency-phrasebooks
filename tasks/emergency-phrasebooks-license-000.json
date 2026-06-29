@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-license-000",
+  "title": "BLOCKING: clear all phrases/pictograms in first pack + confirm exact disclaimer wording",
+  "project": "emergency-phrasebooks",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "licensing",
+    "provenance",
+    "compliance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Before any translation drafting begins, every phrase and pictogram in the chosen first pack must be confirmed clearable for derivative works and open release, and the exact required disclaimer wording must be confirmed verbatim. This is a hard blocking prerequisite of translate-001. Any item that cannot be cleared is dropped or replaced before drafting starts.",
+  "objective": "Produce a license-clearance record confirming every item in the first pack is cleared and the exact disclaimer wording is fixed.",
+  "acceptanceCriteria": [
+    "For every phrase and pictogram in the translate-001 pack, record that the item is clearable for derivative works/translation and open release (on its allow-list entry or an original-authorship record)",
+    "Confirm the exact disclaimer wording required (canonical project disclaimer plus any source-mandated disclaimer, verbatim)",
+    "Any item that cannot be cleared is dropped/replaced before drafting; translate-001 must not start until this passes",
+    "Clearance record references provenance and is reviewable by the license reviewer"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "review/license-clearance-pack-001.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "emergency-phrasebooks-translate-001",
+  "title": "Translate one scenario pack into one language (qualified-speaker + back-translation for Tier C)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "translation",
+    "emergency-response",
+    "public-health"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "This is the first end-to-end pack: one scenario pack translated into one target language with full provenance, attribution, the mandatory disclaimer verbatim, and tier-appropriate review. It proves the whole pipeline except final field adoption. It is hard-gated on license-000 passing before any drafting begins.",
+  "objective": "Translate one scenario pack into one target language as a complete, reviewed, correctly-licensed pack.",
+  "acceptanceCriteria": [
+    "license-000 passed before drafting; locale-001 emergency number verified and injected",
+    "One scenario pack translated in full into one target language, UTF-8; preserved tokens (numbers, units, body parts, emergency number) preserved exactly; register/gender per glossary",
+    "Ships provenance.yaml (phrase ids, sources/original records, versions, glossary + locale versions, translator, reviewers) and attribution.txt (attribution + mandatory disclaimer verbatim in target and pivot language)",
+    "Agent UNCERTAIN: flags captured into review.yaml as agentFlags; no sign-off while any flag is unresolved",
+    "Qualified-speaker sign-off recorded in the PR, reviewer independent of drafting (COI declared); Tier B/C get an independent second reviewer; every Tier-C phrase has a back-translation record; medical-critical Tier-C phrases have clinician/medical-interpreter sign-off",
+    "License/attribution check passes; output license correct (CC-BY-SA-4.0 / source-compatible)"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "packs/<scenario>/<lang>/<locale>/ (phrases.yaml, pack.pdf, pack.md, provenance.yaml, attribution.txt, review.yaml)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "Source-compatible: CC-BY-SA-4.0 for project-original phrases; source-mandated license + mandatory disclaimer where derived (e.g. WHO CC BY-NC-SA 3.0 IGO) — never relicensed as a more permissive license"
+}

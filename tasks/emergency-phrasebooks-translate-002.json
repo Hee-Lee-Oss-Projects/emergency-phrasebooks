@@ -1,0 +1,36 @@
+{
+  "id": "emergency-phrasebooks-translate-002",
+  "title": "Translate a second scenario pack (same language)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "translation",
+    "emergency-response",
+    "public-health"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Repeatability is shown by translating a second scenario pack into the same target language through the full reviewed pipeline. It reuses the established glossary, locale, and review gates. It depends on translate-001 and the engaged reviewer bench.",
+  "objective": "Translate a second scenario pack into the same target language as a complete, reviewed, correctly-licensed pack.",
+  "acceptanceCriteria": [
+    "License clearance confirmed for all items before drafting; locale emergency number verified and injected",
+    "Second scenario pack translated in full into the same target language, UTF-8; preserved tokens exact; register/gender per glossary",
+    "Ships provenance.yaml and attribution.txt (attribution + mandatory disclaimer verbatim in target and pivot language)",
+    "Qualified-speaker sign-off recorded in PR, independent of drafting; Tier B/C second reviewer; every Tier-C phrase back-translated; medical-critical Tier-C clinician sign-off",
+    "License/attribution check passes; agentFlags resolved before sign-off"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "packs/<scenario2>/<lang>/<locale>/ (full pack set)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "Source-compatible: CC-BY-SA-4.0 for project-original phrases; source-mandated license + mandatory disclaimer where derived (e.g. WHO CC BY-NC-SA 3.0 IGO) — never relicensed as a more permissive license"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-tooling-001",
+  "title": "Content JSON schemas + CI structural check (disclaimer + Tier-C back-translation presence)",
+  "project": "emergency-phrasebooks",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "tooling",
+    "schema",
+    "ci"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The content files (phrase bank, allow-list, glossary, locale, provenance, review) need machine schemas and a CI structural check so malformed or non-conformant content fails fast. The schemas live in the agent-neutral core schema package, not adapters. The check also enforces the mandatory disclaimer and Tier-C back-translation presence.",
+  "objective": "Add the content JSON schemas and a CI structural check that fails on malformed or non-conformant content.",
+  "acceptanceCriteria": [
+    "Adds phraseBankSchema, allowListSchema, glossarySchema, localeSchema, provenanceSchema, reviewSchema to packages/schema/src/schemas.ts, compiled via validate.ts (AJV + ajv-formats)",
+    "Structural-check script parses YAML to JSON and fails CI on malformed/non-conformant files",
+    "Fails CI on a pack missing the mandatory disclaimer and on a Tier-C phrase lacking a back-translation record",
+    "Wired into pnpm test; agent-neutral (in the core schema package, not adapters)"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "packages/schema/src/schemas.ts + scripts/check-content.* (CI)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

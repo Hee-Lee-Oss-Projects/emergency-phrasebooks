@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-outcomes-001",
+  "title": "Outcome tracking: post-delivery critical-defect + field-feedback log",
+  "project": "emergency-phrasebooks",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "outcomes",
+    "quality-assurance",
+    "monitoring"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Success is measured as outcomes delivered, so a maintained log captures per delivered pack the adoption status, post-delivery Tier-C critical defects (target 0), and field-usability feedback. This feeds the PLAN success metrics. It depends on the first delivery.",
+  "objective": "Create and maintain the post-delivery outcome log (critical-defects + field feedback) per delivered pack.",
+  "acceptanceCriteria": [
+    "Maintained log capturing, per delivered pack: adoption status, post-delivery Tier-C critical defects (target 0), and field-usability feedback",
+    "Feeds PLAN.md success metrics",
+    "Structured/validated so entries are consistent and queryable",
+    "Updated on each delivery and on any reported field defect"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "outcomes/outcome-log.yaml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

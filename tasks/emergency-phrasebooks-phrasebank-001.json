@@ -1,0 +1,34 @@
+{
+  "id": "emergency-phrasebooks-phrasebank-001",
+  "title": "English-pivot phrase bank + scenario coverage matrix (tiered A/B/C)",
+  "project": "emergency-phrasebooks",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["translation", "emergency-response", "public-health", "accessibility"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "emergency-phrasebooks produces pre-translated, expert-reviewed emergency phrase packs that let first responders and newcomers establish first contact in a crisis. Every downstream translation maps 1:1 to a canonical English-pivot phrase, so the phrase bank is the single source of truth. Each phrase needs a criticality tier (A routine / B sensitive / C critical) that drives review intensity, plus preserved tokens (numbers, units, body parts, emergency number) for deterministic handling. No legal/rights, enforcement-adversarial, immigration-status, coercive, or clinical-advice content is admitted.",
+  "objective": "Author the English-pivot phrase bank and scenario coverage matrix covering at least three emergency scenarios with at least sixty phrases, each tiered A/B/C with context-of-use, register, and preserved-token metadata, conforming to the cross-cultural-clarity authoring guidelines.",
+  "acceptanceCriteria": [
+    "phrasebank/<scenario>.yaml covers >= 3 scenarios with >= 60 total phrases, each with id, scenario, tier (A|B|C), english, contextOfUse, register, preserveTokens[], optional pictogramRef, and sourceId or original:true",
+    "Tiering is justified: allergy/consent/breathing/bleeding/numbers-in-clinical-context = Tier C; triage/evacuation instructions = Tier B; orientation/basic-needs = Tier A",
+    "Every phrase passes the cross-cultural-clarity guidelines (no idioms; no yes/no-gesture ambiguity; inverting negations flagged; numbers/units as preserved tokens)",
+    "No excluded content: no legal/rights/consent-with-legal-effect, enforcement-adversarial, immigration-status, coercive, or clinical-advice (dosing/treatment/diagnosis) phrases",
+    "File validates against phraseBankSchema and passes CI structural checks"
+  ],
+  "resources": [
+    "C:/code/elyos/planning/projects/emergency-phrasebooks/PLAN.md",
+    "C:/code/elyos/planning/projects/emergency-phrasebooks/TASKS.md",
+    "C:/code/elyos/planning/projects/vital-info-translations/PLAN.md",
+    "templates/phrase-authoring-guidelines.md",
+    "templates/criticality-rubric.md"
+  ],
+  "output": "phrasebank/*.yaml (English-pivot phrase bank) plus a scenario coverage matrix and a short README documenting the schema, tiers, and exclusions",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

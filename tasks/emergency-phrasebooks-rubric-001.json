@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-rubric-001",
+  "title": "Criticality (A/B/C) rubric + canonical mandatory disclaimer text",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "emergency-response",
+    "public-health",
+    "review-process"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Each phrase carries a criticality tier (A routine / B sensitive / C critical) that drives how intensively it is reviewed and whether back-translation or clinician sign-off is required. The rubric and the canonical mandatory disclaimer are foundational to the whole review and licensing pipeline. No pack ships without the disclaimer present verbatim.",
+  "objective": "Author the A/B/C criticality rubric and the canonical mandatory project disclaimer text.",
+  "acceptanceCriteria": [
+    "Rubric defines Tier A (orientation/basic-needs), Tier B (triage/evacuation instructions), Tier C (allergy/consent/breathing/bleeding/numbers-in-clinical-context) with decision rules and examples",
+    "Maps each tier to its required review intensity (2nd reviewer / back-translation / clinician sign-off)",
+    "Provides the canonical mandatory disclaimer wording verbatim, to be carried into every pack's attribution.txt in both pivot and target language",
+    "Rubric is machine-checkable enough to drive the CI structural check for tier presence and Tier-C back-translation"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "templates/criticality-rubric.md (+ canonical disclaimer text)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

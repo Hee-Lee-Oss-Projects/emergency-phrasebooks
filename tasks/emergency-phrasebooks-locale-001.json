@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-locale-001",
+  "title": "Locale file with verified emergency number + protocol note (1 region)",
+  "project": "emergency-phrasebooks",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "localization",
+    "emergency-response",
+    "public-safety"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "The same language deploys to different locales, so each pack injects locale data: the verified emergency number and a region-specific protocol note. A wrong or outdated emergency number is treated as a safety defect, so locale data must be verified against an official source with a date. This task produces the first verified locale file.",
+  "objective": "Produce one locale file with an emergency number and protocol note verified against an official source.",
+  "acceptanceCriteria": [
+    "locales/<region>.yaml contains region, emergencyNumber, protocolNotes, verifiedBy, verifiedDate",
+    "Emergency number and protocol note are verified against an official source, with the source and verification date recorded",
+    "Validates against localeSchema and passes CI structural checks",
+    "Structured so the source/locale-change watcher can re-verify it later"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "locales/<region>.yaml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

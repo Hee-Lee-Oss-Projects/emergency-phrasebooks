@@ -1,0 +1,36 @@
+{
+  "id": "emergency-phrasebooks-review-001",
+  "title": "Reviewer checklist (tier-aware: 2nd reviewer / back-translation / clinician)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "review-process",
+    "quality-assurance",
+    "emergency-response"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Translated packs are draft-only until a qualified-speaker sign-off is recorded, with tier-dependent gates: an independent second reviewer for Tier B/C, a back-translation record for every Tier-C phrase, and clinician sign-off for medical-critical Tier-C phrases. The reviewer checklist operationalizes those gates. It depends on the criticality rubric.",
+  "objective": "Write the tier-aware reviewer checklist covering second-reviewer, back-translation, and clinician-sign-off gates.",
+  "acceptanceCriteria": [
+    "Checklist enforces qualified-speaker sign-off independent of drafting, with a COI declaration",
+    "Requires an independent second reviewer for Tier B/C and a back-translation record for every Tier-C phrase",
+    "Requires clinician/medical-interpreter sign-off for medical-critical Tier-C phrases",
+    "Requires that all agent UNCERTAIN: flags are captured in review.yaml and that no sign-off occurs while any flag is unresolved",
+    "Verifies mandatory disclaimer, attribution, provenance, and verified locale data are present"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "templates/reviewer-checklist.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

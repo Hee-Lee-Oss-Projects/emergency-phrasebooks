@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-scale-001",
+  "title": "Additional packs across >=2 languages/locales",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "translation",
+    "emergency-response",
+    "public-health"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "Scaling the program means delivering additional packs across at least two languages/locales while sustaining quality and provenance. Each pack runs the full reviewed, licensed pipeline. It depends on the first confirmed delivery.",
+  "objective": "Produce additional reviewed, licensed packs across at least two languages/locales.",
+  "acceptanceCriteria": [
+    "Additional packs delivered across >= 2 languages/locales, each through the full reviewed pipeline",
+    "Each pack: license clearance before drafting, preserved tokens exact, glossary/locale applied, provenance.yaml + attribution.txt with mandatory disclaimer verbatim",
+    "Tier-aware sign-offs recorded (second reviewer Tier B/C, back-translation Tier C, clinician for medical-critical Tier C)",
+    "License/attribution checks green; agentFlags resolved before sign-off"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "packs/<scenario>/<lang>/<locale>/ (additional pack sets)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "Source-compatible: CC-BY-SA-4.0 for project-original phrases; source-mandated license + mandatory disclaimer where derived (e.g. WHO CC BY-NC-SA 3.0 IGO) — never relicensed as a more permissive license"
+}

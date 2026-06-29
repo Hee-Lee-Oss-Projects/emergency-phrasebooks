@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-sources-001",
+  "title": "Source/pictogram allow-list (license terms + snapshot hash/archive)",
+  "project": "emergency-phrasebooks",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "licensing",
+    "provenance",
+    "emergency-response"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Every admitted phrase or pictogram source must be license-cleared for derivative works and open release, with its exact terms, attribution, and required disclaimer recorded plus a snapshot hash/archive for later drift detection. The allow-list is the provenance backbone for the whole project. Items that cannot be cleared are never admitted.",
+  "objective": "Build the source/pictogram allow-list capturing license terms, attribution, mandatory disclaimer, and a snapshot hash/archive per source.",
+  "acceptanceCriteria": [
+    "sources/allow-list.yaml has >= 3 verified sources or original-authorship records, each with sourceId, license, disclaimerText, attributionTemplate, snapshotHash, snapshotArchiveUrl, verifiedBy, verifiedDate",
+    "Each entry states whether the item is clearable for derivative works/translation and open release; never assume CC0",
+    "Records the exact attribution string and any source-mandated disclaimer verbatim",
+    "Validates against allowListSchema and passes CI structural checks"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "sources/allow-list.yaml",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

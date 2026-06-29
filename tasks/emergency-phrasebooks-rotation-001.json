@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-rotation-001",
+  "title": "Reviewer rotation + medical-reviewer bench",
+  "project": "emergency-phrasebooks",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "governance",
+    "review-process",
+    "sustainability"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Sustained quality at scale needs a reviewer rotation and a standing medical-reviewer bench so no single reviewer is a bottleneck and Tier-C coverage is always available. This task documents that rotation and bench. It builds on the engaged reviewer network.",
+  "objective": "Document the reviewer rotation and medical-reviewer bench for sustained Tier-C coverage.",
+  "acceptanceCriteria": [
+    "Defines a reviewer rotation schedule and a standing medical-capable reviewer bench",
+    "Ensures every active language pair and Tier-C need has covering reviewers with COI handling",
+    "Defines escalation when coverage lapses",
+    "Maintained alongside the qualification criteria"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "docs/reviewer-rotation.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

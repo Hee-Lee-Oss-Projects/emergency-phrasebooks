@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-watcher-001",
+  "title": "Automated source/locale-change watcher (hash-diff vs. snapshots)",
+  "project": "emergency-phrasebooks",
+  "type": "code",
+  "lane": "donated",
+  "priority": "low",
+  "domain": [
+    "tooling",
+    "provenance",
+    "monitoring"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Sources and locale references (emergency numbers/protocols) can change after verification, so a watcher re-fetches them, recomputes snapshot hashes, and flags drift for re-verification. A changed emergency number is a safety defect, so this is a monitoring safeguard. It depends on sources-001, locale-001, and the tooling schemas.",
+  "objective": "Build an automated source/locale-change watcher that hash-diffs against stored snapshots and flags drift.",
+  "acceptanceCriteria": [
+    "Re-fetches allow-listed sources and locale references (emergency numbers/protocols), recomputes snapshotHash, and flags drift against stored snapshots for re-verification",
+    "Runs on a schedule/CI and reports actionable drift findings",
+    "Does not auto-edit content; surfaces flags for human re-verification",
+    "Agent-neutral; documented schedule and output"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "scripts/source-watcher.* (scheduled CI)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

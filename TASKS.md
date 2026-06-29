@@ -251,6 +251,47 @@ Sized but unscheduled:
 
 ---
 
+## Generated task index
+
+Every backlog row above is now materialized as a schema-valid `tasks/<id>.json` (validated against
+the Elyos taskSchema; `filename == id`; no duplicates, no extra keys). The seed
+`emergency-phrasebooks-phrasebank-001.json` is kept as-is. Field policy follows the "How these tasks
+map to Elyos" section: `lane: donated`, `verifiedNeed: false`, `requestor: "TO BE SECURED"` for all
+rows (no partner secured); `riskTier` per the table; `outputLicense` = **MIT** for code/tooling and
+project scaffolding datasets (allow-list, locale), **CC-BY-SA-4.0** for project-authored
+content/documents/datasets, and **source-compatible** for translated packs (never relicensing a
+copyrighted source as CC-BY).
+
+**Type note:** rows whose Type/Deliverable is *translation* are emitted as `type: "writing"` +
+`deliverable: "translation"` (the taskSchema has no `translation` type — translation is a deliverable).
+
+**Fan-out:** none. The plan does **not** enumerate a concrete language/locale set — target languages,
+locales, scenarios, partner, and reviewers are all *TO BE SECURED* / partner-driven (see PLAN §Scope
+and the M2 `partner-001` gate). Per the bounded fan-out policy, each `translate-*`/`glossary-*`/`scale-*`
+row is therefore emitted as **one representative task** (placeholder `<lang>`/`<locale>`/`<scenario>`
+paths) rather than fabricated per-language items. These expand into concrete per-language/per-locale
+tasks once a partner confirms the deployment locale(s), priority languages, and scenarios.
+
+**Guardrails:** the excluded-content rules are preserved verbatim in the relevant task `context`/
+`acceptanceCriteria` (no legal/rights/consent-with-legal-effect, enforcement-adversarial,
+immigration-status, coercive, or clinical-advice phrases). The backlog's gated "Legal/rights phrase
+sub-tier" (high-risk, attorney-gate) remains **out of scope** and is intentionally **not** materialized
+as a task.
+
+Generated ids (M0 → M3):
+
+- M0: `emergency-phrasebooks-phrasebank-001` (seed), `-guidelines-001`, `-rubric-001`, `-sources-001`,
+  `-locale-001`, `-review-001`, `-review-002`, `-glossary-001`, `-license-000`, `-translate-001`,
+  `-print-001`, `-tooling-001`
+- M1: `-reviewers-001`, `-reviewers-002`, `-glossary-002`, `-license-002`, `-watcher-001`, `-a11y-001`,
+  `-pronun-001`, `-translate-002`, `-process-001`
+- M2: `-partner-001`, `-translate-003`, `-fieldtest-001`, `-delivery-001`
+- M3: `-scale-001`, `-rotation-001`, `-outcomes-001`, `-maint-001`
+
+Total: 29 task files (1 pre-existing seed + 28 generated).
+
+---
+
 ## Example task JSON
 
 Schema-valid Task JSON for the first M0 task. `verifiedNeed` is **false** (no partner secured);

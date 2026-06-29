@@ -1,0 +1,35 @@
+{
+  "id": "emergency-phrasebooks-partner-001",
+  "title": "Secure first partner; agree locale, languages, priority scenarios",
+  "project": "emergency-phrasebooks",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "partnerships",
+    "outreach",
+    "governance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Real impact requires a secured partner who confirms the deployment locale(s), priority languages, and priority scenarios; until then field-delivery tasks carry verifiedNeed:false. This task runs outreach to named candidate types and records a confirmed partner agreement. On completion, related tasks update requestor and flip verifiedNeed to true.",
+  "objective": "Secure and document a first partner agreement specifying locale(s), priority languages, and priority scenarios.",
+  "acceptanceCriteria": [
+    "Outreach targets named candidate types (resettlement agencies, hospital language-access offices, EMS/fire, Red Cross/Red Crescent, free clinics, Translators without Borders/CLEAR Global), aiming for >= 3 serious conversations by end of M1",
+    "Pause/decision point: if no partner by end of M1, the maintainer makes an explicit go/pivot/hold decision before further translation work",
+    "A named partner confirmed in writing as requestor; agreed deployment locale(s) (emergency number verified), priority languages, and priority scenarios; reviewer coverage (incl. medical-capable for Tier-C) confirmed",
+    "On completion, related tasks update requestor and verifiedNeed:true"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "review/partner-agreement.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

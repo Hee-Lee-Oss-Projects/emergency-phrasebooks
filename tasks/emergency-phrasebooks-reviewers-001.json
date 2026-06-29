@@ -1,0 +1,34 @@
+{
+  "id": "emergency-phrasebooks-reviewers-001",
+  "title": "Reviewer qualification criteria + onboarding (incl. medical-interpreter tier)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "review-process",
+    "governance",
+    "quality-assurance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Repeatable quality depends on objective, published criteria for who may review, including a medical-capable tier for Tier-C content. This document defines those criteria and the onboarding/sign-off workflow. It builds on the reviewer checklist.",
+  "objective": "Publish reviewer qualification criteria (incl. medical-interpreter tier) and the onboarding/sign-off workflow.",
+  "acceptanceCriteria": [
+    "Defines objective criteria for a qualified speaker (native/near-native target language) and for the medical-capable tier (bilingual clinician or qualified medical interpreter), plus onboarding/sign-off workflow and a COI declaration",
+    "Defines reviewer independence (drafting human is not sole reviewer), the mandatory second reviewer for Tier B/C, back-translation QA as a required gate for Tier C, and clinician sign-off for medical-critical phrases",
+    "Defines the disagreement/conflict-resolution rule (reconcile, escalate, conservative reading wins; recorded in review.yaml)"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "templates/reviewer-qualification.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

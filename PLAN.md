@@ -1,6 +1,6 @@
 # PLAN — emergency-phrasebooks
 
-> Status: Draft · Version: 0.1.0 · Last updated: 2026-06-28 · Owner: J. Carter (acting maintainer) · Lane: donated
+> Status: Draft · Version: 0.2.0 · Last updated: 2026-06-29 · Owner: J. Carter (acting maintainer) · Lane: donated
 
 ## Executive summary
 
@@ -117,7 +117,69 @@ CLEAR Global — also a reviewer-partner candidate). **None is committed as of t
 - **Not** surveillance, deception, coercion, or immigration-status elicitation; no phrase that could
   be weaponized against the beneficiary is admitted (see Refusal guardrails / §Security).
 - **Not** an audio/voice product in v0.1 (pronunciation audio is a sequenced backlog item, text-first
-  for now).
+  for now). **Exception (from competitive review):** minimal **romanized pronunciation for Tier-C
+  phrases** is pulled forward to M0 — being understood under stress, including by low-literacy or
+  non-Latin-script readers, is core to the responder↔newcomer value, not a backlog nicety.
+
+## Competitive landscape & differentiation
+
+The category is served, but **no existing offering occupies the quadrant this project targets: open
+*and* clinically-reviewed *and* criticality-tiered, as an offline pocket point-to card with auditable
+provenance.** The landscape (analyst pass, cited in COMPETITIVE-ANALYSIS.md) sorts into *closest
+competitors*, *cautionary baseline*, and *partners/complements*.
+
+**Closest open competitor — Refugee Phrasebook (RefugePhrasebook.de).** Volunteer / Open Knowledge
+Foundation Germany project; 28+ languages incl. medical and juridical phrases, released **CC0**,
+printable, broad reach. *Contrast:* it is **crowd-sourced without a structured clinical/criticality
+review gate** — no per-phrase back-translation, no clinician sign-off, no A/B/C tiering, and it
+includes the legal/juridical phrases this project deliberately gates out. This is our clearest
+contrast point: same openness, without the auditable safety discipline.
+
+**Closest commercial product analog — Kwikpoint Medical/EMS Visual Language Translator.** Patented,
+battle-tested point-to-picture laminated cards (military/EMS/hospital), waterproof, with a
+language-identification panel to *find an interpreter*. *Contrast:* **proprietary/closed — not
+open-licensed, not freely redistributable or locally customizable, no open provenance/review
+transparency.** It validates the format we are building; our open + reviewed + tiered + provenance-
+bearing angle is the differentiator. (Its language-ID "find an interpreter" panel is worth emulating
+— see Adjacent opportunities.)
+
+**Cautionary baseline — Google Translate (what responders improvise with today).** Ubiquitous, free,
+offline packs, 100+ languages — and **unsafe for high-stakes emergency content**. A 2025 *Journal of
+Emergency Medicine* study of ED discharge instructions found wide language variance (>90% accurate for
+Spanish, dropping to ~67% Farsi and ~55% Armenian), and the ATA concluded it "still isn't good enough"
+for medical instructions. This is the core evidentiary argument for why **raw machine translation is
+never shipped for emergencies** and why reviewed packs exist; the same suspicion applies to any LLM
+draft (see §Solution approach — Claude leverage).
+
+**Professional / institutional actors — best treated as partners/complements, not competitors.**
+- **Translators without Borders / CLEAR Global** ("Words of Relief" + TWB Glossaries) — the
+  professional gold standard for crisis-language infrastructure (diaspora translator network,
+  terminology standardization). **Best reviewer-network + glossary partner candidate.**
+- **Tarjimly** — on-demand human interpreters (120+ languages, HIPAA-compliant) — exactly the
+  qualified interpreter the pack **bridges to**; requires connectivity and availability, so it fails in
+  the offline first minutes our cards target. **Complement.**
+- **American Red Cross / IFRC first-aid & hazard apps** — trusted, offline-capable first-aid
+  *instruction to the responder* (largely EN/ES, app-dependent), not cross-language point-to-speak.
+  **Partner / distribution candidate.**
+- **MedlinePlus (NLM), UNHCR, Save the Children, CDC, ICRC/Red Crescent** — authoritative multilingual
+  health/orientation *documents and emergency-comms guidance*, not first-contact pocket cards. **Ideal
+  sources/partners,** not competitors.
+
+**Differentiators to win (priority order):**
+1. **The empty quadrant — "open + reviewed + criticality-tiered."** Free/forkable like Refugee
+   Phrasebook, with Kwikpoint-grade (or higher) review discipline and an auditable A/B/C safety trail.
+   *Single strongest differentiator.*
+2. **Auditable safety, not asserted safety** — CI-enforced disclaimer + Tier-C back-translation +
+   reviewer/back-translator independence + verified locale data; a partner can **inspect the provenance**
+   of every phrase.
+3. **Offline-first paper runtime** — works at a roadside/shelter with no power, network, or app, where
+   Google Translate / Tarjimly / Red Cross apps degrade.
+4. **Honest scope** — explicitly de-positioned against MT and against replacing interpreters; a trust
+   and adoption advantage with health-system language-access offices bound by ACA **§1557** (which
+   requires *qualified* interpreters and generally bars reliance on ad-hoc/family interpreters except
+   true emergencies).
+5. **Reusable high-stakes translation pipeline** as a portfolio asset shared with sibling projects
+   (see Adjacent opportunities).
 
 ## Success metrics (outcomes)
 
@@ -137,6 +199,7 @@ adopted and used by a beneficiary org, with zero post-delivery critical defects.
 | Packs passing **qualified-speaker sign-off** on first or second pass | n/a | ≥ 90% (**effective from M1**) | Reviewer checklist outcomes |
 | **License/attribution/disclaimer compliance** of delivered packs | n/a | 100% (hard gate; automated from M1, manual + structural check in M0) | License-check task / CI per deliverable |
 | Partner-confirmed **field usability** (a responder/newcomer found the pack usable in a real or simulated first-contact) | n/a | Positive from ≥ 1 partner | Field-usability feedback (M2) |
+| **Navigability** — time-to-find a target phrase / time-to-first-contact in simulated trials (a correct-but-unnavigable card fails in the field) | n/a | Baseline + downward trend; partner-acceptable | Timed simulated first-contact trials (M2 fieldtest) |
 
 **Interim foundation metrics (M0/M1, partner-independent)**
 
@@ -158,14 +221,24 @@ sample threshold.
 ## Scope
 
 **Phrase criticality tiers (the core scoping device).** Every phrase is classified, in the phrase
-bank, into one of three tiers that drive review intensity (see Quality gates):
+bank, into one of three tiers that drive review intensity (see Quality gates). **The cut is by
+*harm-on-mistranslation*, not by topic** (per competitive review): a phrase whose misunderstanding
+could plausibly injure or kill is Tier C **even if it reads like an "operational" instruction.** When
+in doubt between two tiers, classify **up**.
 - **Tier C — critical:** a mistranslation could cause **direct harm**. Allergy/medication-allergy,
   consent-to-treatment (non-legal, clinical), numbers/dosing-context, "do not move / do not give food
-  or water," choking/breathing, severe-bleeding, pregnancy/labor. *Strongest review.*
-- **Tier B — sensitive:** triage questions and operational instructions ("where does it hurt?",
-  "evacuate now," "is anyone still inside?"). *Two-reviewer or one + back-translation.*
+  or water," choking/breathing, severe-bleeding, pregnancy/labor — **and time-critical safety/hazard
+  instructions whose misunderstanding is life-threatening** ("evacuate now," "is anyone still inside?",
+  "do not enter / get out"). *Strongest review.*
+- **Tier B — sensitive:** triage questions and operational instructions that are harmful-if-wrong but
+  not immediately life-threatening ("where does it hurt?", "how long have you felt this way?").
+  *Two-reviewer or one + back-translation; **medical/triage Tier-B phrases additionally inherit the
+  medical-capable-reviewer requirement**.*
 - **Tier A — routine:** orientation and basic needs ("what is your name?", "where is the toilet?",
   "are you hungry/thirsty/cold?"). *Single qualified reviewer.*
+
+**Where exactly the B/C line falls for operational hazard instructions is set by a clinician + a
+responder together** (M1 rubric refinement) — see Open questions.
 
 **Scenario coverage (in scope).** Medical/triage, fire/rescue & evacuation, natural-disaster &
 shelter, and basic-needs/intake. A **scenario coverage matrix** (M0) enumerates the exact phrase set
@@ -221,9 +294,15 @@ gates "done").
    and honoring register/gender notes; emits **`UNCERTAIN:` flags** for anything uncertain.
 4. **Self-check.** Agent runs the reviewer checklist as a first pass and lists open flags.
 5. **Qualified review.** A qualified speaker verifies accuracy/safety/register, completes the
-   checklist, and **records sign-off in the PR**. **Tier B/C** add an **independent second reviewer**;
-   **Tier C** add **mandatory back-translation QA** and, for **medical-critical** phrases, a
-   **bilingual clinician or qualified medical-interpreter** sign-off.
+   checklist (incl. the **pictogram-comprehension check** — does a naive target-language reader read the
+   icon, and any gesture/point-to interaction, as intended?), and **records sign-off in the PR**.
+   **Tier B/C** add an **independent second reviewer** (medical/triage Tier-B inherits the
+   medical-capable reviewer); **Tier C** uses a **true ISO-style two-person flow — independent forward
+   translator + independent reviewer + an independent back-translator (not the forward translator) +
+   recorded reconciliation** — with a committed **back-translation diff report** (negation/number/
+   false-friend divergences surfaced for human adjudication) and, for **medical-critical** phrases, a
+   **bilingual clinician or qualified medical-interpreter** sign-off. Back-translation **flags**; it
+   never self-certifies — a human reconciles every divergence.
 6. **License & attribution check.** Confirm attribution + the **mandatory disclaimer** are present and
    verbatim; confirm output license is compatible with any source.
 7. **Localize & assemble.** Inject locale data (emergency number/protocol), render the **print
@@ -242,9 +321,11 @@ gates "done").
 - `glossaries/<src>-<tgt>.yaml` — `{ term, translation|preserve, partOfSpeech, register, genderForms?,
   notes }` plus transliteration/units conventions.
 - `locales/<region>.yaml` — `{ region, emergencyNumber, protocolNotes, verifiedBy, verifiedDate }`.
-- `packs/<scenario>/<lang>/<locale>/` — `phrases.yaml` (translations keyed by phrase id),
-  `pack.pdf` + `pack.md`, `provenance.yaml`, `attribution.txt` (incl. mandatory disclaimer),
-  `review.yaml` (checklist + sign-offs + `agentFlags` + back-translation record for Tier C).
+- `packs/<scenario>/<lang>/<locale>/` — `phrases.yaml` (translations keyed by phrase id, with
+  **minimal romanized pronunciation for Tier-C phrases** from M0), `pack.pdf` + `pack.md`,
+  `provenance.yaml`, `attribution.txt` (incl. mandatory disclaimer), `review.yaml` (checklist +
+  sign-offs + `agentFlags` + back-translation record **and the back-translation diff report** for Tier
+  C + pictogram-comprehension result + back-translator-independence declaration).
 - `templates/` — `reviewer-checklist.md`, `reviewer-handoff.md`, `print-pocketcard.*`,
   `accessibility-variant.*`, `phrase-authoring-guidelines.md`, `criticality-rubric.md`,
   `disclaimer.md` (the canonical, mandatory disclaimer text).
@@ -277,6 +358,34 @@ the core schema package, never in adapters.
   not a substitute for a qualified interpreter" disclaimer; CI fails any pack lacking it.
 - **No data ingestion / no PII.** We pull only from public, allow-listed sources and collect no
   end-user data.
+
+**Claude / agent leverage (donated lane, human-run, draft-only).** The human's own coding agent
+accelerates the *drafting and QA-surfacing* steps; **every output is an unverified draft treated with
+the same suspicion as raw MT.** Useful work:
+- **Phrase-bank & scenario authoring** — draft the English-pivot canonical set, propose A/B/C tier +
+  context-of-use + preserved tokens, and run the cross-cultural-clarity checklist (idioms, inverting
+  negations, yes/no-gesture ambiguity) as a first pass.
+- **Translation drafts + structured back-translation QA** — draft a translation honoring
+  glossary/register/gender + preserved tokens, then **independently back-translate and emit the diff/
+  semantic-divergence report** (negation inversion, number/unit drift, false friends) for the human
+  reviewer to adjudicate. Generating the *QA artifact* is where the agent adds the most safety value.
+- **Glossary/termbase bootstrapping**, **license/provenance drafting** (allow-list entries, attribution,
+  flagging NC/SA/IGO terms + mandatory disclaimers for human verification), **pictogram matching &
+  gap-finding** (+ proposed comprehension-test prompts), and **consistency lint** (phrase-ID drift
+  across languages; pre-CI sanity for missing disclaimer/back-translation), with typed
+  `UNCERTAIN:` flags into `review.yaml`.
+
+**Hard gates the agent must NOT cross (non-negotiable):**
+- **No high-stakes emergency phrase ships on model output alone — ever.** Native/near-native +
+  (Tier C, and medical/triage Tier B) clinician/medical-interpreter sign-off + back-translation is
+  mandatory. The agent drafts; humans certify.
+- **Never machine-translation-only for high-tier phrases** — the Google-Translate ED evidence
+  (55–67% accuracy in some languages) applies equally to any LLM.
+- The agent **never** adjudicates the "not a substitute for an interpreter" boundary, relaxes the
+  disclaimer, authors clinical advice (dosing/treatment/diagnosis) or excluded legal/coercive phrases,
+  **clears a license** (`license-000` is signed by the human license reviewer), or **verifies an
+  emergency number/locale** (official-source human verification only). Back-translation **flags, never
+  passes**.
 
 ## Data, licensing & compliance
 
@@ -350,10 +459,17 @@ a pivot language.
 **Risk tier: medium** (needs domain accuracy + a qualified reviewer), with two layered sub-tiers:
 
 - **Medical-critical sub-tier (hardened medium):** Tier-C medical phrases (allergy, consent-to-
-  treatment, breathing/bleeding/labor, numbers-in-clinical-context) additionally require a **bilingual
-  clinician or qualified medical-interpreter** sign-off and **mandatory back-translation QA**. This is
+  treatment, breathing/bleeding/labor, numbers-in-clinical-context) **and time-critical safety/hazard
+  Tier-C instructions** additionally require a **bilingual clinician or qualified medical-interpreter**
+  sign-off and **mandatory back-translation QA**. **Medical/triage Tier-B phrases also inherit the
+  medical-capable-reviewer requirement** (a misunderstood triage question carries real harm). This is
   the project's most safety-sensitive content and is the reason the project does not treat all medium
   content identically.
+- **Back-translator independence (explicit).** For Tier C the back-translation must be performed by
+  someone **other than the forward translator** (parallel to the existing reviewer-independence rule);
+  the same person's mental model can mask systematic errors in both forward and check. The flow is
+  **independent forward translator → independent reviewer → independent back-translator →
+  reconciliation**, all recorded in `review.yaml` with a committed **back-translation diff report**.
 - **Excluded high-risk legal sub-tier (gated out):** Any phrase with **legal effect** or in a
   **law-enforcement-adversarial** context (rights-on-arrest, police caution, asylum/immigration claims,
   legal consent/"sign here") is **high risk** and **excluded from v0.1**. It may only ever be
@@ -366,8 +482,11 @@ a pivot language.
    self-check** (below).
 2. **Qualified-speaker sign-off** recorded in the PR (accuracy, safety, preserved tokens, negations,
    numbers, register/gender, cultural appropriateness).
-3. **Tier-dependent escalation:** Tier B/C → **independent second reviewer**; Tier C →
-   **back-translation QA**; medical-critical Tier C → **clinician/medical-interpreter sign-off**.
+3. **Tier-dependent escalation:** Tier B/C → **independent second reviewer** (medical/triage Tier-B →
+   **medical-capable reviewer**); Tier C → **independent back-translation QA by a non-forward
+   translator + committed diff report**; medical-critical / safety-critical Tier C →
+   **clinician/medical-interpreter sign-off**. A **pictogram-comprehension check** (naive-reader icon +
+   gesture interpretation) is part of every checklist, **not deferred to field testing**.
 4. **License & attribution verification** (mandatory disclaimer + provenance + compatible output
    license + verified locale data).
 5. **CI green** for code/tooling and for structural checks on content files (incl. disclaimer
@@ -395,8 +514,9 @@ sign-off may be recorded while any flag is unresolved**; each must be `resolved`
 **and** qualified-speaker sign-off recorded (plus second-reviewer/back-translation/clinician sign-off
 where the tier requires) **and** the **mandatory disclaimer + license + attribution + provenance**
 verified **and** **locale data verified** **and** CI green **and** the pack is **delivered to and
-adopted by a partner for field use**, with a **field-usability confirmation**. Merged-but-not-used is
-**not** shipped.
+adopted by a partner for field use**, with a **field-usability confirmation** **and** a **pre-agreed
+recall/notify channel** for post-distribution Tier-C defects (printed cards cannot be patched).
+Merged-but-not-used is **not** shipped.
 
 ## Roadmap & milestones
 
@@ -412,6 +532,11 @@ prerequisite confirmed** before drafting; **one scenario pack translated into on
 qualified-speaker sign-off (+ back-translation for any Tier-C phrase) and a passing license/attribution
 check**; content JSON schemas + **minimal CI structural check** (incl. disclaimer + Tier-C
 back-translation presence) green. Field delivery deferred to M2; `verifiedNeed` honestly `false`.
+**Added in v0.2:** **minimal romanized pronunciation for Tier-C phrases** authored with the first pack;
+a **pictogram-comprehension check** in the reviewer checklist (decoupled from a field partner); and the
+**category-need evidence base cited in-repo** (ad-hoc/family-interpreter harm studies; ACA §1557
+qualified-interpreter duty; the Google-Translate ED accuracy study) so cold-start work has an
+evidentiary anchor independent of a named partner.
 **Metric note:** the 100%/≥90% rates are **effective from M1**; M0 verifies the first deliverable
 manually + structural check.
 
@@ -423,15 +548,25 @@ independence, two-reviewer rule, back-translation gate, conflict resolution) + �
 (or a translation-NGO partner) engaged, **≥ 1 medical-capable**; glossary + packs generalized to ≥ 2
 language pairs; **license-check tooling enforced in CI**; **automated source/locale-change watcher
 operating**; **accessibility variant** (large-print/dyslexia-friendly) + **pronunciation/
-transliteration** support added; a second scenario pack completed; pipeline **runbook** merged.
-Dependency: reviewer sourcing.
+transliteration** support added (extending the M0 Tier-C romanization to all tiers); a second scenario
+pack completed; pipeline **runbook** merged. **Added in v0.2:** the **clinician + responder refine the
+B/C line** for operational hazard instructions in the criticality rubric; a **"shared vs forked"
+infrastructure table with `vital-info-translations`** published so the two projects converge on **one**
+high-stakes translation pipeline (allow-list schema, glossary schema, review workflow) rather than
+diverging. Dependency: reviewer sourcing.
 
 **M2 — First partner field delivery (needs partner).**
 Goal: deliver an **adopted, field-tested** pack set.
 Exit criteria: a partner responder org/clinic/shelter secured (`verifiedNeed = true`); deployment
 locale(s), priority languages, and priority scenarios agreed; locale data verified for the deployment
 region; **≥ 1 reviewed, correctly-licensed pack delivered, field-usability-tested, and confirmed
-adopted** for field use. First true Definition of Shipped event. Dependency: M0/M1 + partner.
+adopted** for field use. First true Definition of Shipped event. **Added in v0.2 (delivery
+preconditions):** the partner agrees to a **delivered-pack recall/notify channel** (printed offline
+cards cannot be patched, so a discovered Tier-C defect needs a pre-agreed notify path, paired with the
+QR/short-code-to-latest); field testing records **time-to-find / time-to-first-contact** (navigability),
+not just positive feedback; and a **"what this is NOT" partner-onboarding one-pager** (states the §1557
+qualified-interpreter duty, positions the pack as supplement-only) is delivered with the pack.
+Dependency: M0/M1 + partner.
 
 **M3 — Scale program.**
 Goal: scale scenarios/languages with sustained quality + tracked outcomes.
@@ -482,6 +617,39 @@ partner and marked accordingly (`verifiedNeed: false` until then).
   (accessibility), `open-pronunciation-audio`/`open-transliteration` (pronunciation),
   `multilingual-signage-templates`, `vital-info-translations` (shared allow-list/glossary patterns).
 
+## Adjacent opportunities
+
+Perpendicular outcomes that reuse this project's machinery (from the competitive review §7); none is in
+v0.1/v0.2 scope, but each is recorded so the pipeline is built to be shared, not forked.
+
+- **Reusable high-stakes translation pipeline (keystone asset).** The criticality-tiering +
+  license-as-data allow-list + back-translation gate + clinician sign-off + provenance + CI structural
+  checks generalize to **any** high-stakes multilingual content. Factor them into a shared
+  package/process consumed by `vital-info-translations`, the `oncology-glossary-multilingual` /
+  termbase work, `multilingual-signage-templates`, and future projects — a portfolio-wide "reviewed
+  translation" capability. **Recommendation: one shared pipeline, separate deliverable repos.**
+- **`open-pictograms` — point-to-communicate / AAC boards.** An emergency point-to icon set (body
+  diagram, hazards, allergy/medication, do-not-move) authored/curated open-licensed and
+  **comprehension-tested**, consumed by phrasebooks *and* signage, and extensible to AAC-style
+  point-to-communicate boards for non-literate or no-shared-script users. Fills the gap Kwikpoint's
+  proprietary icons leave.
+- **`multilingual-signage-templates`** — the same phrase bank + locale data rendered at signage size
+  (lamination-ready, complex-script) for shelters/clinics/triage tents. Parallel deliverable from one
+  source of truth.
+- **`first-aid-open`** — pair phrase packs with open first-aid step content (complement to Red Cross /
+  IFRC apps) so the responder both *communicates* and *acts*, keeping the communication-only /
+  no-clinical-advice boundary intact (first-aid content separately reviewed).
+- **`community-resource-maps` + a "find an interpreter" panel** — emulate Kwikpoint's language-ID panel
+  by linking a "find a qualified interpreter / telephonic line / clinic" panel to locale-specific
+  resource data, reinforcing the bridge-to-interpreter framing.
+- **MCP server (tooling spin-off)** — expose the validation/lint/back-translation-diff and allow-list
+  checks as an MCP server so any agent run can self-check packs pre-CI; stays agent-neutral and
+  draft-only, never a substitute for human certification.
+- **Partnerships (high-leverage):** **TWB / CLEAR Global** as reviewer-network + glossary partner;
+  **Red Cross/IFRC** and **Tarjimly** as distribution/complement partners; **hospital language-access
+  offices** (§1557-bound) as priority adopters; **UNHCR / Save the Children / CDC / ICRC** as sources
+  and reach.
+
 ## Risks & mitigations
 
 | Risk | Likelihood | Impact | Mitigation | Owner |
@@ -495,7 +663,10 @@ partner and marked accordingly (`verifiedNeed: false` until then).
 | No qualified (esp. medical-capable) reviewer for a language | High | High | Don't ship unreviewed; partner with translation NGO/medical interpreters; scope only languages with reviewer coverage | Steward / Maintainer |
 | No partner secured → nothing reaches "shipped" | High | High | M0/M1 build partner-independent value; concrete outreach plan with named target types/owner/timeline; `verifiedNeed=false` until secured; explicit pause/decision point | Acting maintainer → Steward |
 | Cultural inappropriateness / gesture/register error (e.g. yes/no nod, T-V form) | Medium | Medium | Cross-cultural-clarity authoring guidelines; native-speaker review; register/gender fields in glossary | Reviewers |
-| Pictogram misread across cultures | Medium | Medium | Prefer tested humanitarian/wayfinding icon sets; reviewer checks pictogram comprehension; pair icon with text | Reviewers |
+| Pictogram misread across cultures (incl. yes/no head-shake / point-to gesture ambiguity) | Medium | Medium | Prefer tested humanitarian/wayfinding icon sets; **pictogram-comprehension check in the reviewer checklist from M0** (naive-reader icon + gesture interpretation); pair icon with text | Reviewers |
+| **Safety/hazard instruction mis-tiered as B** (e.g. "evacuate now" treated as merely operational) | Medium | High | Tier cut by **harm-on-mistranslation, not topic**; classify-up rule; clinician + responder co-set the B/C line (M1); medical-capable reviewer inherited by medical/triage Tier-B | Reviewers / Clinician reviewer |
+| **Tier-C defect discovered after printed offline distribution** (cards cannot be patched) | Low | Critical | Pre-agreed partner **recall/notify channel** as M2 delivery precondition; version + QR/short-code-to-latest; withdrawal procedure | Steward / Maintainer |
+| **Back-translation masks systematic error** (same person drafts + checks) | Medium | High | **Independent back-translator** (≠ forward translator) for Tier C; committed back-translation diff report; reconciliation recorded in `review.yaml` | Reviewers |
 | Agent overconfidence / unflagged uncertainty | Medium | High | Operationalized `UNCERTAIN:` flags into `review.yaml`; unresolved flags block sign-off; agent output is draft only | Reviewers |
 | Coercive/immigration-status/partisan phrase admitted | Low | High | Refusal guardrails; excluded-content rule is a compliance gate; reviewer + maintainer screen | Maintainer |
 
@@ -525,6 +696,9 @@ partner and marked accordingly (`verifiedNeed: false` until then).
 - **Versioning & errata.** Packs are versioned; each pack carries a version + date and (where the
   partner supports it) a short-code/QR pointing to the latest version + errata. A **withdrawal
   procedure** flags and recalls any pack affected by a discovered Tier-C defect or a license change.
+  Because **printed offline cards cannot be patched**, every delivery secures a **pre-agreed partner
+  recall/notify channel** (an M2 delivery precondition, not just a sustainability nicety) so a defect
+  found after distribution reaches the field.
 - **Outcome tracking** continues post-delivery: a **critical-defect log** (target 0) and **field
   feedback** per delivered pack, plus periodic partner check-ins. Outcomes (adoption, field usability,
   defects) — not merge counts — are the maintained metrics.
@@ -547,11 +721,16 @@ partner and marked accordingly (`verifiedNeed: false` until then).
    - **Pause/decision point:** if **no partner by end of M1**, the maintainer makes an explicit **go /
      pivot / hold** decision (e.g. pivot to open self-distribution via a resettlement portal, or hold)
      rather than drafting packs no one has committed to use.
-2. **Reviewer sourcing:** individual qualified reviewers vs. a translation-NGO partnership? Where do we
-   source **medical-capable** reviewers (medical-interpreter associations, bilingual clinician
-   volunteers)? Formal qualification criteria?
+2. **Reviewer sourcing — the true bottleneck.** Individual qualified reviewers vs. a translation-NGO
+   partnership? Securing **medical-capable** reviewers across needed languages may be harder than
+   securing a partner — should M1 **prioritize a TWB/CLEAR Global reviewer-network partnership as the
+   primary path** over recruiting individuals (the plan lists both; pick a primary)? Where do we source
+   medical-capable reviewers (medical-interpreter associations, bilingual clinician volunteers)? Formal
+   qualification criteria?
 3. **Output content license:** **CC-BY-SA 4.0 vs. CC0** for maximum reuse — confirm with likely
-   partners (some prefer CC0 for unrestricted redistribution). Confirm pictogram-source compatibility.
+   partners (Refugee Phrasebook chose CC0; some agencies prefer it for unrestricted redistribution, and
+   SA copyleft may impede a clinic remixing). **Lean CC0 for the phrase bank, reserving SA only where a
+   source forces it?** Confirm pictogram-source compatibility.
 4. **Legal sub-tier:** do we ever stand up the attorney-review gate to offer (clearly "informational,
    not legal advice," jurisdiction-sourced) rights phrases, or keep it permanently out of scope?
 5. **Delivery formats / scripts:** pocket-fold PDF sufficient, or do partners need lamination-ready,
@@ -559,7 +738,18 @@ partner and marked accordingly (`verifiedNeed: false` until then).
 6. **Pronunciation:** transliteration-only, IPA, or audio (overlaps `open-pronunciation-audio`)? Audio
    is medium-effort and sequenced as backlog.
 7. **Funded lane?** Proposal implies donated; do we ever want metered drafting under escrow for surge
-   demand (sudden displacement event)? Out of scope for v0.1 (would require `fundedBudgetUsd`).
+   demand (sudden displacement event), and how is the budget cap + human-review gate preserved under
+   time pressure? Out of scope for v0.1 (would require `fundedBudgetUsd`).
+8. **Where exactly is the B/C line for operational hazard instructions?** ("evacuate now," "is anyone
+   inside?" — the v0.2 default classifies up to Tier C.) Needs a clinician + a responder to co-set the
+   rubric in M1.
+9. **Pictogram validation without a field partner:** what is the informal target-community
+   comprehension-test protocol that lets us check icons in M0/M1 before M2 field testing?
+10. **Delivered-pack recall:** what is the realistic notify channel for a Tier-C defect found after
+    printed distribution to offline users (beyond QR-to-latest + the partner channel)?
+11. **One pipeline or three repos** with `vital-info-translations` / `multilingual-signage-templates`?
+    (Working recommendation: **one shared high-stakes-translation pipeline, separate deliverable
+    repos**; confirm via the "shared vs forked" infrastructure table in M1.)
 
 ## References
 
@@ -571,6 +761,15 @@ partner and marked accordingly (`verifiedNeed: false` until then).
 - `C:\code\elyos\planning\ROADMAP.md` — portfolio context (`emergency-phrasebooks`, Track 4).
 - Open pictogram / humanitarian-icon libraries; official emergency-number references; WHO permissions
   & translation-disclaimer policy; medical-interpreter standards (verify current terms per source).
+- `./COMPETITIVE-ANALYSIS.md` — competitive landscape, optimizations, and spin-offs merged into this
+  v0.2 (full citations there).
+- **Category-need evidence (to be cited in-repo per M0):** ad-hoc/family/child-interpreter harm vs.
+  professional interpreters (Flores et al.; AHRQ PSNet "language barrier"); legal duty under **Title VI
+  / ACA §1557 (2024 final rule)** to provide *qualified* interpreters (HHS OCR; National Health Law
+  Program); Google-Translate ED-discharge accuracy study (*J. Emergency Medicine*, 2025; ATA analysis).
+- **Competitive references:** Refugee Phrasebook (CC0); Kwikpoint Medical/EMS visual translator;
+  Translators without Borders / CLEAR Global (Words of Relief, TWB Glossaries); Tarjimly; Red Cross /
+  IFRC first-aid apps; MedlinePlus; UNHCR / Save the Children / CDC / ICRC.
 
 ---
 
@@ -672,3 +871,53 @@ example Task JSON. Appendix A (25 applied improvements) present.
 `verifiedNeed`); source medical-capable reviewers; choose CC-BY-SA vs CC0; decide whether the legal
 sub-tier is ever stood up. **Verdict: APPROVED to proceed to M0** (partner-independent foundations),
 with M2+ blocked on the noted human decisions.
+
+## Changelog — v0.2 (analysis merged)
+
+Merged the findings of `COMPETITIVE-ANALYSIS.md` (analyst pass, 2026-06-29) into the plan. Surgical and
+additive; no guardrail weakened, no facts or phrases invented.
+
+**Correctness / safety fixes applied:**
+- **Criticality cut re-based on *harm-on-mistranslation*, not topic.** Time-critical safety/hazard
+  instructions ("evacuate now," "is anyone still inside?") moved to **Tier C**; classify-up rule added.
+  (§Scope, §Quality, §Risks)
+- **Medical/triage Tier-B phrases now inherit the medical-capable-reviewer requirement.** (§Scope,
+  §Quality)
+- **Back-translator independence made explicit** — Tier C uses an ISO-style flow (independent forward
+  translator + independent reviewer + **independent back-translator ≠ forward translator** +
+  reconciliation), with a committed **back-translation diff report** artifact. (§Architecture, §Quality,
+  data model, §Risks)
+- **Pictogram-comprehension check added to the reviewer checklist from M0** (naive-reader icon + gesture
+  interpretation, incl. yes/no head-shake ambiguity), decoupled from securing a field partner.
+  (§Architecture, §Quality, M0)
+- **Minimal romanized pronunciation for Tier-C phrases pulled forward to M0** (point-to fallback for
+  low-literacy / no-shared-script users; closes a first-contact gap). (§Non-goals, data model, M0)
+- **Delivered-pack recall/notify channel** made an **M2 delivery precondition** and a Definition-of-
+  Shipped item (printed offline cards cannot be patched). (§Quality, M2, §Sustainability, §Risks)
+- **Navigability metric** (time-to-find / time-to-first-contact) and **category-need evidence cited
+  in-repo** (ad-hoc-interpreter harm; §1557 qualified-interpreter duty; Google-Translate ED study).
+  (§Metrics, M0, §References)
+- **Reaffirmed never-MT-only for high-tier phrases** and never machine/LLM output shipped without
+  qualified-human + (Tier C / medical Tier B) clinician sign-off. (§Architecture)
+
+**Strategy integrated:**
+- New **"Competitive landscape & differentiation"** section (Refugee Phrasebook, Kwikpoint, Google
+  Translate baseline, TWB/CLEAR Global, Tarjimly, Red Cross/IFRC, MedlinePlus, UNHCR/CDC/ICRC) with the
+  **"open + reviewed + criticality-tiered + provenance-bearing" empty-quadrant** differentiator.
+- **Claude/agent leverage folded into Architecture** (draft phrasings + back-translation QA/diff
+  surfacing + glossary/termbase + license/pictogram drafting) with **hard human gates** kept
+  (qualified-human review; never MT-only for high tier; clinician sign-off; agent never clears licenses
+  or verifies emergency numbers).
+- **Optimizations folded into the Roadmap** (M0 romanization + pictogram check + evidence anchor; M1
+  B/C-line refinement + shared-vs-forked infra table; M2 recall channel + navigability + onboarding
+  one-pager).
+- New **"Adjacent opportunities"** section (shared high-stakes-translation pipeline with
+  `vital-info-translations` / `oncology-glossary-multilingual`; `open-pictograms` point-to-communicate /
+  AAC boards; signage templates; first-aid pairing; find-an-interpreter panel; **MCP server**).
+- **Open Questions merged** (reviewer-supply primary path; CC0 lean; B/C hazard line; pictogram
+  validation without a partner; delivered-pack recall; one-pipeline-vs-three-repos).
+
+**Preserved unchanged:** vision and scope; all refusal guardrails (qualified translation review;
+harm-on-mistranslation discipline; license/provenance rigor; "bridge, not a substitute for an
+interpreter"); excluded high-risk legal sub-tier; communication-only medical rule; honest
+`verifiedNeed=false` partner status. `COMPETITIVE-ANALYSIS.md` left untouched.

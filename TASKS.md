@@ -1,6 +1,6 @@
 # TASKS — emergency-phrasebooks
 
-> Status: Draft · Version: 0.1.0 · Last updated: 2026-06-28 · Owner: J. Carter (acting maintainer) · Lane: donated
+> Status: Draft · Version: 0.2.0 · Last updated: 2026-06-29 · Owner: J. Carter (acting maintainer) · Lane: donated
 
 The backlog for the `emergency-phrasebooks` good-deed project. Read alongside [PLAN.md](./PLAN.md).
 Milestones (M0–M3) match the roadmap there.
@@ -68,8 +68,11 @@ scenario pack into one language, end-to-end except final field adoption.
   `sourceId`(allow-list) **or** `original: true`.
 - Every phrase passes the **cross-cultural-clarity guidelines** (no idioms; no yes/no-gesture
   ambiguity; inverting negations flagged; numbers/units listed as preserved tokens).
-- Tiering is justified: allergy/consent/breathing/bleeding/numbers-in-clinical-context = **Tier C**;
-  triage/evacuation instructions = **Tier B**; orientation/basic-needs = **Tier A**.
+- Tiering is justified **by harm-on-mistranslation, not topic** (classify up when in doubt):
+  allergy/consent/breathing/bleeding/numbers-in-clinical-context **and time-critical safety/hazard
+  instructions** ("evacuate now," "is anyone still inside?," "do not enter") = **Tier C**; triage
+  questions / operational instructions that are harmful-if-wrong but not immediately life-threatening =
+  **Tier B**; orientation/basic-needs = **Tier A**.
 - **No excluded content**: no legal/rights/consent-with-legal-effect, enforcement-adversarial,
   immigration-status, coercive ("sign here"), or clinical-advice (dosing/treatment) phrases.
 - Validates against `phraseBankSchema`; passes CI structural checks.
@@ -86,33 +89,43 @@ scenario pack into one language, end-to-end except final field adoption.
 `translate-001` (first scenario pack)
 - `license-000` passed **before drafting**; `locale-001` emergency number verified and injected.
 - One scenario pack translated in full into one target language, UTF-8; preserved tokens (numbers,
-  units, body parts, emergency number) preserved exactly; register/gender per glossary.
+  units, body parts, emergency number) preserved exactly; register/gender per glossary; **minimal
+  romanized pronunciation authored for every Tier-C phrase** (responder↔newcomer must be understood
+  under stress / by low-literacy or non-Latin-script readers).
 - Ships `provenance.yaml` (phrase ids, sources/original records, versions, glossary + locale versions,
   translator, reviewers) and `attribution.txt` (attribution + **mandatory disclaimer verbatim** in
   target + pivot language).
 - Agent **`UNCERTAIN:` flags** captured into `review.yaml` as `agentFlags`; **no sign-off while any
   flag is unresolved**.
 - **Qualified-speaker sign-off recorded in the PR**, reviewer **independent of drafting** (COI
-  declared). **Tier B/C** phrases get an **independent second reviewer**; **every Tier-C phrase** has a
-  **back-translation record**; **medical-critical Tier-C** phrases have a **clinician/medical-
-  interpreter sign-off**.
+  declared). **Tier B/C** phrases get an **independent second reviewer** (**medical/triage Tier-B
+  inherits the medical-capable reviewer**); **every Tier-C phrase** has a **back-translation record by
+  an independent back-translator (≠ the forward translator) plus a committed back-translation diff
+  report** with reconciliation; **medical-critical / safety-critical Tier-C** phrases have a
+  **clinician/medical-interpreter sign-off**.
+- **Pictogram-comprehension check recorded** for every pictogram used (naive target-language reader
+  reads the icon and any point-to/gesture interaction as intended) — not deferred to field testing.
 - License/attribution check passes; output license correct (CC-BY-SA 4.0 / source-compatible).
 
 `tooling-001` (content schemas + CI)
 - Adds `phraseBankSchema`, `allowListSchema`, `glossarySchema`, `localeSchema`, `provenanceSchema`,
   `reviewSchema` to `packages/schema/src/schemas.ts`, compiled via `validate.ts` (AJV + `ajv-formats`).
 - Structural-check script parses YAML→JSON and **fails CI** on malformed/non-conformant files, on a
-  **pack missing the mandatory disclaimer**, and on a **Tier-C phrase lacking a back-translation
-  record**. Wired into `pnpm test`. Agent-neutral (in the core schema package, not adapters).
+  **pack missing the mandatory disclaimer**, on a **Tier-C phrase lacking a back-translation record (or
+  diff report)**, and on a **Tier-C phrase lacking minimal romanized pronunciation**. Wired into `pnpm
+  test`. Agent-neutral (in the core schema package, not adapters).
 
 **M0 Definition of Done:** guidelines + criticality rubric + canonical disclaimer + reviewer checklist
 + handoff template + print template merged; phrase bank (≥3 scenarios, ≥60 tiered phrases) + allow-list
 (≥3 verified sources or original-authorship records, with snapshot hash/archive) + 1 glossary (≥25
 terms) + 1 locale (verified emergency number) merged; **`license-000` cleared before drafting**; **one
-scenario pack translated into one language with qualified-speaker sign-off (+ back-translation for any
-Tier-C phrase) and a passing license/attribution check**; content JSON schemas + minimal CI structural
-check (incl. disclaimer + Tier-C back-translation presence) green. 100%/≥90% metrics **effective from
-M1**. All M0 deliverables carry `verifiedNeed: false` (no partner; field adoption deferred to M2).
+scenario pack translated into one language with qualified-speaker sign-off (+ independent
+back-translation + diff report for any Tier-C phrase, + minimal romanized pronunciation for Tier-C
+phrases, + pictogram-comprehension check) and a passing license/attribution check**; content JSON
+schemas + minimal CI structural check (incl. disclaimer + Tier-C back-translation presence) green;
+**category-need evidence cited in-repo** (ad-hoc-interpreter harm; ACA §1557 qualified-interpreter
+duty; Google-Translate ED-accuracy study). 100%/≥90% metrics **effective from M1**. All M0 deliverables
+carry `verifiedNeed: false` (no partner; field adoption deferred to M2).
 
 ---
 
@@ -140,9 +153,11 @@ Tier C).
   **medical-capable** tier (bilingual clinician or qualified medical interpreter), plus
   onboarding/sign-off workflow and a **COI declaration**.
 - Defines **reviewer independence** (drafting human ≠ sole reviewer), the **mandatory second reviewer**
-  for Tier B/C, **back-translation QA** as a required gate for Tier C, **clinician sign-off** for
-  medical-critical phrases, and the **disagreement/conflict-resolution** rule (reconcile → escalate →
-  conservative reading wins; recorded in `review.yaml`).
+  for Tier B/C (**medical/triage Tier-B inherits the medical-capable reviewer**), **back-translation QA
+  by an independent back-translator (≠ forward translator) + diff report** as a required gate for Tier
+  C, **clinician sign-off** for medical-critical / safety-critical phrases, a **pictogram-comprehension
+  check**, and the **disagreement/conflict-resolution** rule (reconcile → escalate → conservative
+  reading wins; recorded in `review.yaml`).
 
 `license-002`
 - Tooling validates each pack's metadata against its allow-list/original-authorship records and
@@ -191,14 +206,18 @@ Goal: deliver an **adopted, field-tested** pack set. **All tasks gated on a secu
 
 `fieldtest-001`
 - At least one **responder and/or newcomer** trials the pack in a real or simulated first-contact;
-  usability findings (legibility, find-time, pictogram comprehension, fold/format) recorded and any
-  blocking issues fixed before delivery.
+  usability findings (legibility, **timed time-to-find / time-to-first-contact**, pictogram
+  comprehension, fold/format) recorded and any blocking issues fixed before delivery.
 
 `delivery-001`
 - Delivered set includes packs, provenance, attribution + **mandatory disclaimer**, all required
   sign-offs (incl. back-translation/clinician for Tier C), verified locale data; license check green;
   **partner confirms adoption for field use in writing** (recorded in PR/receipt). First true
   **Definition of Shipped** event.
+- **Precondition:** partner agrees to a **delivered-pack recall/notify channel** (printed offline cards
+  cannot be patched), paired with QR/short-code-to-latest; and a **"what this is NOT" onboarding
+  one-pager** (states the §1557 qualified-interpreter duty; positions the pack as supplement-only) is
+  delivered with the pack.
 
 **M2 Definition of Done:** partner secured (`verifiedNeed=true`); ≥ 1 reviewed, correctly-licensed,
 **field-usability-tested** pack set **delivered and confirmed adopted** for field use.

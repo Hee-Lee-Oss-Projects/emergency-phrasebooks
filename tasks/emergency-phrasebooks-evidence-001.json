@@ -1,0 +1,37 @@
+{
+  "id": "emergency-phrasebooks-evidence-001",
+  "title": "Category-need evidence anchor cited in-repo (M0)",
+  "project": "emergency-phrasebooks",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "evidence",
+    "public-health",
+    "compliance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 adds an M0 requirement: the category-need evidence base must be cited in-repo so cold-start work has an evidentiary anchor independent of a named partner. The evidence includes: (1) ad-hoc/family/child-interpreter harm vs. professional interpreters (Flores et al.; AHRQ PSNet 'language barrier'); (2) legal duty under Title VI / ACA §1557 (2024 final rule) to provide qualified interpreters; (3) Google-Translate ED-discharge accuracy study (*J. Emergency Medicine*, 2025) showing ~67% Farsi and ~55% Armenian accuracy, and the ATA conclusion that MT is not adequate for medical instructions. This same evidence is the core argument for why the project exists and why raw MT/LLM output is never shipped for high-tier phrases.",
+  "objective": "Write and commit an in-repo evidence-anchor document citing the key category-need studies, legal duties, and competitive baseline findings that justify the project's existence and review discipline.",
+  "acceptanceCriteria": [
+    "Documents cite ad-hoc/family/child-interpreter harm evidence (Flores et al.; AHRQ PSNet) with correct attribution",
+    "Cites ACA §1557 (2024 final rule) and Title VI qualified-interpreter duty (HHS OCR; National Health Law Program) with source URLs and access dates",
+    "Cites the Google-Translate ED-discharge accuracy study (J. Emergency Medicine 2025) and ATA analysis, stating the language-accuracy ranges (>90% Spanish, ~67% Farsi, ~55% Armenian) and the conclusion that MT is not adequate for emergency medical instructions",
+    "States explicitly why the same suspicion applies to LLM output and why this project uses reviewed translation not MT/LLM-only",
+    "Committed in-repo with verifiable source URLs and access dates; references marked as 'verify current terms per source' where terms may change",
+    "Links from PLAN.md References section (already present in v0.2)"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "docs/evidence-anchor.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

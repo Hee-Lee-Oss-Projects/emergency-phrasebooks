@@ -1,0 +1,39 @@
+{
+  "id": "emergency-phrasebooks-backtrans-001",
+  "title": "Back-translation diff report template + independent back-translator workflow (ISO-style Tier-C flow)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "translation",
+    "review-process",
+    "quality-assurance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 makes back-translator independence explicit and adds a committed back-translation diff report as a required artifact for every Tier-C phrase. The ISO-style flow is: independent forward translator → independent reviewer → independent back-translator (NOT the forward translator) → recorded reconciliation. A systematic error masked when the same person drafts and back-checks is the risk being mitigated. The diff report surfaces negation inversions, number/unit drift, and false friends for human adjudication. Generating the diff report is described as where the agent adds the most safety value (flagging, not certifying). The back-translator-independence declaration and the diff report are both committed to review.yaml. Existing tasks (review-001, translate-001) mention back-translation but do not capture this new artifact, independence requirement, or reconciliation record.",
+  "objective": "Author the back-translation diff report template and document the independent back-translator workflow (ISO-style Tier-C flow) so reviewers can execute and record the full flow.",
+  "acceptanceCriteria": [
+    "Template captures: forward-translator identity, reviewer identity, back-translator identity, and a back-translator-independence declaration (back-translator ≠ forward translator; no shared mental model)",
+    "Diff report format surfaces, per Tier-C phrase: the forward translation, the back-translation, and flagged divergences categorized as negation inversion / number-unit drift / false friend / register shift / other",
+    "Documents that the diff report flags divergences for human adjudication — it never self-certifies or auto-passes; every flagged divergence has a recorded human reconciliation outcome",
+    "Specifies how the completed diff report is committed into review.yaml (field names, structure) alongside the back-translator-independence declaration",
+    "States hard gate: no Tier-C sign-off may be recorded while any back-translation diff flag is unresolved",
+    "Reviewer checklist (review-001) and handoff template (review-002) are documented as needing to reference this template"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-review-001.json",
+    "tasks/emergency-phrasebooks-review-002.json",
+    "tasks/emergency-phrasebooks-translate-001.json"
+  ],
+  "output": "templates/back-translation-diff-report.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

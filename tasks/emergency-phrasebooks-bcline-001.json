@@ -1,0 +1,38 @@
+{
+  "id": "emergency-phrasebooks-bcline-001",
+  "title": "B/C-line refinement for operational hazard instructions (M1: clinician + responder co-set)",
+  "project": "emergency-phrasebooks",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "review-process",
+    "emergency-response",
+    "governance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 adds Open Question #8: where exactly does the B/C line fall for operational hazard instructions? The v0.2 default classifies up (e.g. 'evacuate now,' 'is anyone still inside?,' 'do not enter / get out' move to Tier C), but the exact boundary for this class of instructions must be co-set by a clinician and an emergency responder in M1 rubric refinement. The cut is by harm-on-mistranslation, not by topic; a phrase whose misunderstanding could plausibly injure or kill is Tier C even if it reads like an operational instruction. Until this refinement happens in M1, the classify-up default applies. The outcome is an addendum to the criticality rubric (rubric-001 authors the initial rubric; this refines it for the edge-case class). Also establishes the medical-capable-reviewer inheritance for medical/triage Tier-B phrases agreed in the same session.",
+  "objective": "Convene a clinician and an emergency responder to co-set the exact B/C line for operational hazard instructions and record the agreed rubric addendum.",
+  "acceptanceCriteria": [
+    "A clinician and an emergency responder (not the same person; both qualified in their domain) participate in a documented rubric-refinement session",
+    "Session works through candidate phrases (e.g. 'evacuate now,' 'is anyone still inside?,' 'do not enter / get out,' fire-rescue evacuation commands) and classifies each as Tier B or Tier C using the harm-on-mistranslation cut",
+    "Produces a written addendum to the criticality rubric (or a revised rubric) recording the agreed classification of each candidate phrase with the rationale",
+    "Confirms and records the medical-capable-reviewer requirement for medical/triage Tier-B phrases",
+    "Addendum committed as templates/criticality-rubric-bc-addendum.md (or integrated into rubric-001 output) and referenced from the main rubric",
+    "Classify-up default applies until this task is complete; M0 packs use the v0.2 default"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-rubric-001.json",
+    "tasks/emergency-phrasebooks-reviewers-001.json"
+  ],
+  "output": "templates/criticality-rubric-bc-addendum.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "emergency-phrasebooks-infratbl-001",
+  "title": "Shared-vs-forked infrastructure table with vital-info-translations (M1)",
+  "project": "emergency-phrasebooks",
+  "type": "research",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "governance",
+    "architecture",
+    "sustainability"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 adds an M1 deliverable: a 'shared vs forked' infrastructure table with vital-info-translations so that the two projects converge on one high-stakes translation pipeline (allow-list schema, glossary schema, review workflow) rather than diverging into parallel implementations. The adjacent-opportunities section names this the 'keystone asset': the criticality-tiering, license-as-data allow-list, back-translation gate, clinician sign-off, provenance, and CI structural checks should generalize to any high-stakes multilingual content project. The working recommendation is one shared pipeline, separate deliverable repos. Open Question #11 asks: one pipeline or three repos with vital-info-translations / multilingual-signage-templates?",
+  "objective": "Research the infrastructure overlap between emergency-phrasebooks and vital-info-translations, produce a shared-vs-forked comparison table, and recommend the convergence path for the high-stakes translation pipeline.",
+  "acceptanceCriteria": [
+    "Table enumerates the key pipeline components (allow-list schema, glossary schema, review workflow, back-translation gate, provenance schema, CI structural checks, disclaimer enforcement) for both projects",
+    "Identifies components that are identical or near-identical in both projects and are candidates for a shared package",
+    "Identifies components that genuinely differ (scope, risk tier, content domain) and should remain project-specific",
+    "Proposes the convergence path: which components to factor into a shared package/process, which repo(s) host the shared code, how separate deliverable repos consume it",
+    "Explicitly answers Open Question #11 (one pipeline or three repos) with a reasoned recommendation",
+    "Committed as docs/shared-pipeline-infra-table.md and referenced from PLAN.md M1 section"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-tooling-001.json",
+    "tasks/emergency-phrasebooks-sources-001.json",
+    "tasks/emergency-phrasebooks-process-001.json"
+  ],
+  "output": "docs/shared-pipeline-infra-table.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

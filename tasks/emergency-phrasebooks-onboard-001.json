@@ -1,0 +1,39 @@
+{
+  "id": "emergency-phrasebooks-onboard-001",
+  "title": "Partner onboarding one-pager: what this is NOT (M2 delivery addition)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "delivery",
+    "partnerships",
+    "compliance"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 adds a 'what this is NOT' partner-onboarding one-pager as an M2 delivery addition. Printed pocket phrase cards occupy a dangerous middle-ground: useful enough to be adopted, limited enough to be misused. A health-system or clinic partner is bound by ACA §1557 (2024 final rule) to provide qualified interpreters; relying on the phrase cards as a substitute — rather than as a bridge to a qualified interpreter — would create liability and could harm patients. The one-pager must be delivered with every pack set to any partner (especially institutional ones bound by §1557) and must be crisp, non-legalistic, and field-usable by a manager or admissions coordinator, not just legal counsel.",
+  "objective": "Write the partner onboarding one-pager that states clearly what the phrase pack is NOT, positions it as a bridge (not a substitute) for qualified interpreters, and states the ACA §1557 qualified-interpreter duty for institutional partners.",
+  "acceptanceCriteria": [
+    "One page (target) or two pages maximum; plain language; intended audience is a clinic manager, shelter coordinator, or EMS supervisor — not legal counsel",
+    "States explicitly: this pack is NOT a qualified interpreter; it is NOT a substitute for qualified interpretation under ACA §1557 or Title VI; it is NOT intended for clinical advice, diagnosis, treatment, or dosing",
+    "States what it IS: a bridge tool for the first contact minutes before a qualified interpreter is available; a point-to communication aid for scenarios where no shared language exists and no interpreter is immediately reachable",
+    "Cites the ACA §1557 qualified-interpreter duty for covered entities (HHS OCR; 2024 final rule) and notes that institutional partners must maintain qualified-interpreter access independent of this pack",
+    "Designed to be delivered with the physical pack set; formatted to be printed and kept on-site",
+    "Reviewed for accuracy of the §1557 / Title VI duty statement by the acting maintainer before delivery; does not provide legal advice, states 'consult legal counsel for your specific obligations'"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-delivery-001.json",
+    "tasks/emergency-phrasebooks-partner-001.json",
+    "tasks/emergency-phrasebooks-evidence-001.json"
+  ],
+  "output": "templates/partner-onboarding-one-pager.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

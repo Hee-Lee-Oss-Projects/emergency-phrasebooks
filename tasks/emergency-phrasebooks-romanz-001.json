@@ -1,0 +1,39 @@
+{
+  "id": "emergency-phrasebooks-romanz-001",
+  "title": "Minimal romanized pronunciation for Tier-C phrases (M0 pull-forward)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "translation",
+    "pronunciation",
+    "accessibility"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 pulls minimal romanized pronunciation for Tier-C phrases forward from M1 to M0. The rationale: being understood under stress, including by low-literacy or non-Latin-script readers, is core to the responder↔newcomer value — not a backlog nicety. A responder who cannot read the target script needs a fallback to attempt spoken pronunciation of life-safety phrases (allergy, do-not-move, choking, bleeding). This is a narrow M0 scope: only Tier-C phrases, only a minimal romanization (not IPA audio), authored with the first translated pack and reviewed by a qualified speaker. Full pronunciation/transliteration support for all tiers is the separate M1 task (pronun-001). Note that romanization of medical-critical phrases is safety-sensitive: preserved tokens (numbers, emergency number, drug names) must remain exact, and the romanization is reviewed alongside the translation. The agent drafts; a qualified native/near-native speaker verifies; output is a draft unless sign-off is recorded.",
+  "objective": "Add minimal romanized pronunciation fields for all Tier-C phrases in the first translated pack, authored alongside the translation and reviewed by a qualified speaker of the target language.",
+  "acceptanceCriteria": [
+    "Every Tier-C phrase in the first translated pack gains a romanizedPronunciation field in phrases.yaml using a documented scheme (a widely-used romanization system for the language, or IPA-lite if no standard system exists; scheme stated per language)",
+    "Preserved tokens (numbers, units, emergency number) are romanized exactly as they appear in the translation, with no substitution or approximation",
+    "Romanization reviewed and signed off by a qualified native/near-native speaker of the target language, independent of drafting; sign-off recorded in review.yaml",
+    "Any UNCERTAIN: flags on romanization captured in agentFlags; no sign-off while flags are unresolved",
+    "Validates against the pack/phrase schema (romanizedPronunciation field added to schema); passes CI structural checks",
+    "Authored with the first translated pack (translate-001), not deferred to M1; M1 pronun-001 extends to all tiers"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-translate-001.json",
+    "tasks/emergency-phrasebooks-pronun-001.json",
+    "tasks/emergency-phrasebooks-phrasebank-001.json"
+  ],
+  "output": "packs/<scenario>/<lang>/<locale>/phrases.yaml (romanizedPronunciation field for all Tier-C phrases)",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

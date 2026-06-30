@@ -1,0 +1,40 @@
+{
+  "id": "emergency-phrasebooks-recall-001",
+  "title": "Delivered-pack recall/notify channel protocol (M2 delivery precondition)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "delivery",
+    "safety",
+    "sustainability"
+  ],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 adds a pre-agreed partner recall/notify channel as an explicit M2 delivery precondition — not just a sustainability nicety. Printed offline cards cannot be patched; a discovered Tier-C defect (mistranslation that could cause harm) found after distribution needs a pre-agreed notify path to reach the field. The channel must be agreed with the partner before the first delivery. The delivery also carries a version + QR/short-code pointing to the latest version + errata so distributed cards can reference current information. The existing maint-001 task documents the general withdrawal procedure for sources/locale/license changes, but does not cover the specific partner recall/notify channel that must be pre-agreed as an M2 delivery precondition. The existing delivery-001 task does not mention this precondition either.",
+  "objective": "Document the delivered-pack recall/notify channel protocol and record it as a required pre-agreed commitment from the M2 partner before first delivery.",
+  "acceptanceCriteria": [
+    "Protocol defines the recall/notify channel: the mechanism by which a discovered Tier-C defect (post-distribution) is communicated to the partner and to field users of printed cards",
+    "Specifies that the channel must be agreed in writing with the partner before M2 delivery and recorded in the delivery record (delivery-001)",
+    "Documents the version + QR/short-code-to-latest requirement for every delivered printed pack (so a field user can reference the latest version and errata without the project having push access to distributed cards)",
+    "Describes the withdrawal procedure specifically for offline printed cards (including what 'recall' means when cards are physically distributed — partner responsibility for replacement / destruction / re-distribution)",
+    "States that any Tier-C defect discovered post-distribution triggers the recall/notify channel regardless of the card's age",
+    "Ties into the outcome log (outcomes-001) and the general withdrawal procedure (maint-001)"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-delivery-001.json",
+    "tasks/emergency-phrasebooks-maint-001.json",
+    "tasks/emergency-phrasebooks-outcomes-001.json",
+    "tasks/emergency-phrasebooks-partner-001.json"
+  ],
+  "output": "docs/recall-notify-protocol.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

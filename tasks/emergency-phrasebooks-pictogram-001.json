@@ -1,0 +1,39 @@
+{
+  "id": "emergency-phrasebooks-pictogram-001",
+  "title": "Pictogram-comprehension check protocol (M0 reviewer checklist addition)",
+  "project": "emergency-phrasebooks",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": [
+    "review-process",
+    "accessibility",
+    "cross-cultural-communication"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "PLAN v0.2 pulls the pictogram-comprehension check forward from M2 field testing into the M0 reviewer checklist. Every reviewer must check that a naive target-language reader (with no context) interprets each icon and any point-to or gesture interaction as intended. This catches cross-cultural misreads (e.g. yes/no head-shake ambiguity; gesture semantics that differ by culture; icons read differently across scripts or familiarity levels) before the pack reaches a field partner. The check is now a required part of every reviewer checklist, not a field-testing nicety. The check result and any comprehension concerns are committed to review.yaml. No task currently covers this protocol; the existing review-001 does not include the pictogram-comprehension check in its acceptance criteria.",
+  "objective": "Write the pictogram-comprehension check protocol for inclusion in the reviewer checklist and review.yaml, covering naive-reader icon interpretation, gesture/point-to semantics, and cross-cultural ambiguity detection.",
+  "acceptanceCriteria": [
+    "Protocol defines what a reviewer must check: does a naive target-language reader (no context) interpret the icon correctly? Does any point-to or gesture interaction carry unintended meaning in the target culture?",
+    "Covers at minimum: yes/no head-shake ambiguity, directional gesture semantics, icon-color meaning (cross-cultural), and familiarity differences for pictogram sets (e.g. standard humanitarian vs. Western-medical icons)",
+    "Specifies the review.yaml fields for recording the comprehension-check result and any flagged concerns, and that unresolved concerns block sign-off",
+    "Documents a minimal informal comprehension-test protocol for M0/M1 use (before a field partner is secured): e.g. a native/near-native speaker of the target language with no pack context is shown icons in isolation",
+    "States that the check applies to every pack from M0, not deferred to M2 field testing",
+    "review-001 (reviewer checklist) must reference this protocol"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/emergency-phrasebooks-review-001.json",
+    "tasks/emergency-phrasebooks-rubric-001.json",
+    "tasks/emergency-phrasebooks-sources-001.json"
+  ],
+  "output": "templates/pictogram-comprehension-check.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-SA-4.0"
+}

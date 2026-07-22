@@ -21,9 +21,9 @@
     "File validates against phraseBankSchema and passes CI structural checks"
   ],
   "resources": [
-    "C:/code/elyos/planning/projects/emergency-phrasebooks/PLAN.md",
-    "C:/code/elyos/planning/projects/emergency-phrasebooks/TASKS.md",
-    "C:/code/elyos/planning/projects/vital-info-translations/PLAN.md",
+    "C:/code/hee-lee-oss/planning/projects/emergency-phrasebooks/PLAN.md",
+    "C:/code/hee-lee-oss/planning/projects/emergency-phrasebooks/TASKS.md",
+    "C:/code/hee-lee-oss/planning/projects/vital-info-translations/PLAN.md",
     "templates/phrase-authoring-guidelines.md",
     "templates/criticality-rubric.md"
   ],

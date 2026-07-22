@@ -4,7 +4,7 @@
 
 ## Executive summary
 
-`emergency-phrasebooks` is an Elyos good-deed project that produces **pre-translated, expert-reviewed
+`emergency-phrasebooks` is a Hee-Lee Oss good-deed project that produces **pre-translated, expert-reviewed
 emergency phrase packs** — short, action-oriented utterances that let a **first responder or
 frontline worker** and a **newcomer with limited proficiency in the local language** establish
 first contact in a crisis: medical/triage, fire/rescue, natural disaster, and shelter/intake
@@ -21,7 +21,7 @@ professional interpretation at the moment of first contact — buying minutes un
 interpreter, telephonic interpreting line, or bilingual staff member is reached.
 
 The work runs in the **donated lane**: a human runs their own coding agent interactively to draft
-phrase translations, pack layouts, and supporting data, then opens PRs; the Elyos CLI only prepares
+phrase translations, pack layouts, and supporting data, then opens PRs; the Hee-Lee Oss CLI only prepares
 workspaces and opens PRs (it never runs an agent headless and never authenticates one). The project
 is **medium risk tier** under the good-deed definition (it needs domain accuracy and a qualified
 reviewer), with **two hardened sub-tiers** layered on top: a **medical-critical** sub-tier requiring
@@ -278,7 +278,7 @@ per scenario and marks each phrase's tier and any preserved tokens.
 ## Solution approach & architecture
 
 This is primarily a **content/data pipeline** project (deliverables are phrase packs + open data),
-with light tooling (schema validation, license lint, print rendering). It rides on existing Elyos
+with light tooling (schema validation, license lint, print rendering). It rides on existing Hee-Lee Oss
 donated-lane mechanics (CLI prepares workspace, human runs agent, PR opened, human/expert review
 gates "done").
 
@@ -578,7 +578,7 @@ piloted.
 ## Work breakdown
 
 The itemized, sized backlog lives in **[TASKS.md](./TASKS.md)**, organized by the milestones above
-(M0–M3) plus a Backlog/future section. Each task maps to an Elyos Task JSON (see the schema in
+(M0–M3) plus a Backlog/future section. Each task maps to a Hee-Lee Oss Task JSON (see the schema in
 `packages/schema/src/schemas.ts`) with id, type, lane, risk tier, deliverable, acceptance criteria,
 and license fields. M0 tasks are partner-independent foundations; M2+ tasks are gated on a secured
 partner and marked accordingly (`verifiedNeed: false` until then).
@@ -604,7 +604,7 @@ partner and marked accordingly (`verifiedNeed: false` until then).
 
 ## Dependencies & integrations
 
-- **Elyos donated lane**: `packages/cli` (workspace prep + PR), `packages/core`, `packages/schema`
+- **Hee-Lee Oss donated lane**: `packages/cli` (workspace prep + PR), `packages/core`, `packages/schema`
   (Task + content schemas). No funded-lane / API-key execution in this project.
 - **Public source sites**: government/PD emergency phrase lists, WHO/health-authority phrasing, open
   pictogram libraries, official emergency-number references (read-only; per-item license/accuracy
@@ -613,7 +613,7 @@ partner and marked accordingly (`verifiedNeed: false` until then).
   **medical interpreters/clinicians** for qualified review — **external dependency, not yet secured**.
 - **Partner responder org / clinic / shelter** for requirements, locale/scenario priorities, and
   field adoption — **not yet secured**.
-- **Sibling Elyos projects** (reuse where licenses permit): `open-pictograms`, `easy-read-plus`
+- **Sibling Hee-Lee Oss projects** (reuse where licenses permit): `open-pictograms`, `easy-read-plus`
   (accessibility), `open-pronunciation-audio`/`open-transliteration` (pronunciation),
   `multilingual-signage-templates`, `vital-info-translations` (shared allow-list/glossary patterns).
 
@@ -753,12 +753,12 @@ v0.1/v0.2 scope, but each is recorded so the pipeline is built to be shared, not
 
 ## References
 
-- `C:\code\elyos\CLAUDE.md` — Elyos work rules, lanes, quality bar, refusal guardrails.
-- `C:\code\elyos\docs\good-deed-definition.md` — good-deed criteria and risk tiers.
-- `C:\code\elyos\packages\schema\src\schemas.ts` — Task (and content) JSON schemas.
-- `C:\code\elyos\planning\projects\vital-info-translations\{PLAN,TASKS}.md` — sibling project; shared
+- `C:\code\hee-lee-oss\CLAUDE.md` — Hee-Lee Oss work rules, lanes, quality bar, refusal guardrails.
+- `C:\code\hee-lee-oss\docs\good-deed-definition.md` — good-deed criteria and risk tiers.
+- `C:\code\hee-lee-oss\packages\schema\src\schemas.ts` — Task (and content) JSON schemas.
+- `C:\code\hee-lee-oss\planning\projects\vital-info-translations\{PLAN,TASKS}.md` — sibling project; shared
   allow-list/glossary/review patterns reused here.
-- `C:\code\elyos\planning\ROADMAP.md` — portfolio context (`emergency-phrasebooks`, Track 4).
+- `C:\code\hee-lee-oss\planning\ROADMAP.md` — portfolio context (`emergency-phrasebooks`, Track 4).
 - Open pictogram / humanitarian-icon libraries; official emergency-number references; WHO permissions
   & translation-disclaimer policy; medical-interpreter standards (verify current terms per source).
 - `./COMPETITIVE-ANALYSIS.md` — competitive landscape, optimizations, and spin-offs merged into this

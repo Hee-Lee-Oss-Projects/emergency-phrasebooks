@@ -5,9 +5,9 @@
 The backlog for the `emergency-phrasebooks` good-deed project. Read alongside [PLAN.md](./PLAN.md).
 Milestones (M0–M3) match the roadmap there.
 
-## How these tasks map to Elyos
+## How these tasks map to Hee-Lee Oss
 
-Each task below becomes an **Elyos Task JSON** validated against `packages/schema/src/schemas.ts`.
+Each task below becomes an **Hee-Lee Oss Task JSON** validated against `packages/schema/src/schemas.ts`.
 Field mapping:
 
 - **id** — stable slug id, e.g. `emergency-phrasebooks-phrasebank-001` (table column `ID`).
@@ -273,9 +273,9 @@ Sized but unscheduled:
 ## Generated task index
 
 Every backlog row above is now materialized as a schema-valid `tasks/<id>.json` (validated against
-the Elyos taskSchema; `filename == id`; no duplicates, no extra keys). The seed
+the Hee-Lee Oss taskSchema; `filename == id`; no duplicates, no extra keys). The seed
 `emergency-phrasebooks-phrasebank-001.json` is kept as-is. Field policy follows the "How these tasks
-map to Elyos" section: `lane: donated`, `verifiedNeed: false`, `requestor: "TO BE SECURED"` for all
+map to Hee-Lee Oss" section: `lane: donated`, `verifiedNeed: false`, `requestor: "TO BE SECURED"` for all
 rows (no partner secured); `riskTier` per the table; `outputLicense` = **MIT** for code/tooling and
 project scaffolding datasets (allow-list, locale), **CC-BY-SA-4.0** for project-authored
 content/documents/datasets, and **source-compatible** for translated packs (never relicensing a
@@ -341,9 +341,9 @@ derived translated content (translated packs use CC-BY-SA 4.0 / source-compatibl
     "File validates against phraseBankSchema and passes CI structural checks"
   ],
   "resources": [
-    "C:/code/elyos/planning/projects/emergency-phrasebooks/PLAN.md",
-    "C:/code/elyos/planning/projects/emergency-phrasebooks/TASKS.md",
-    "C:/code/elyos/planning/projects/vital-info-translations/PLAN.md",
+    "C:/code/hee-lee-oss/planning/projects/emergency-phrasebooks/PLAN.md",
+    "C:/code/hee-lee-oss/planning/projects/emergency-phrasebooks/TASKS.md",
+    "C:/code/hee-lee-oss/planning/projects/vital-info-translations/PLAN.md",
     "templates/phrase-authoring-guidelines.md",
     "templates/criticality-rubric.md"
   ],

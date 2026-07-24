@@ -6,7 +6,7 @@
 
 **Definition of shipped:** **and** qualified-speaker sign-off recorded (plus second-reviewer/back-translation/clinician sign-off where the tier requires) **and** the **mandatory disclaimer + license + attribution + provenance** verified **and** **locale data verified** **and** CI green **and** the pack is 
 
-This is an **Hee-Lee Oss** good-deed project. Contributors pull a task, do it with their own coding agent, and open a PR. Platform: https://github.com/jdev1977/hee-lee-oss
+This is a **Hee-Lee Oss** good-deed project. Contributors pull a task, do it with their own coding agent, and open a PR. Get started: https://github.com/Hee-Lee-Oss-Projects/hee-lee-oss-downloads
 
 ## Plan
 - [PLAN.md](./PLAN.md) — robust enterprise plan (vision, architecture, roadmap, risks; includes an applied-improvements appendix + review sign-off)
